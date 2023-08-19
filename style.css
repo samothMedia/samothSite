@@ -58,7 +58,7 @@ button.header_buttons { background:none; border:none; }
 #home_page{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     /*padding: 181px 186px 143px 186px;*/
     flex-direction: column;
     align-items: center;
@@ -98,7 +98,7 @@ button.header_buttons { background:none; border:none; }
 #home_text_sec{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -139,7 +139,7 @@ button.header_buttons { background:none; border:none; }
 #about_page {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     /*padding: 181px 186px 143px 186px;*/
     flex-direction: column;
     align-items: center;
@@ -174,7 +174,7 @@ button.header_buttons { background:none; border:none; }
 #gallery_page {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     /*padding: 181px 186px 143px 186px;*/
     flex-direction: column;
     align-items: center;
