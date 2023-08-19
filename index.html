@@ -1,16 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">-->
-    <title>Miles Thomas</title>
-    <script src="script.js"></script>
-</head>
-<body>
-    <h1>
-        Hello, World!
-    </h1>
-</body>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">-->
+        <title>samoth.</title>
+        <script src="script.js"></script>
+        <script src="https://kit.fontawesome.com/3424007297.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <button id="about_button" class="header_buttons" onclick="sectionSwap('about_page')">about.</button>
+            <button  id="home_button" class="header_buttons" onclick="sectionSwap('home_page')">home.</button>
+            <button id="gallery_button" class="header_buttons" onclick="sectionSwap('gallery_page')">gallery.</button>
+        </header>
+        <div id="home_page" class="pages">
+            <img id="teaser-img" src="./resources/teaser_allure_subdue_horiz.png" alt="Teaser Image">
+            <img id="teaser-img-vert" src="./resources/teaser_allure_subdue_vert.png" alt="Teaser Image Vertical">
+            <div id="home_text_sec">
+                <div id="home_samoth" class="samoth">samoth.</div>
+                <div id="date" class="home_subtext"></div>
+            </div>
+
+<!--            <p id="allure" class="home_subtitle">allure.</p>-->
+<!--            <p id="subdue" class="home_subtitle">subdue.</p>-->
+
+        </div>
+        <div id="about_page" class="pages">
+<!--            <img id="teaser-img" src="./resources/teaser_allure_subdue_horiz.png" alt="Teaser Image">-->
+            <div id="about_samoth" class="samoth">samoth.</div>
+            <div id="about_text_sec">
+                <div class="about-text">
+                    is both a diverse, visual creative media portfolio and the collective of passionate
+                    creatives—fashion stylists, models, photographers, videographers, makeup artists, front-end
+                    developers, etc—whom exercise their niches in an organized, collaborative environment to produce and
+                    manage said portfolio.
+                </div>
+                <div class="about-text">
+                    the ability to freely express our art, garner hands-on professional experience in media production,
+                    amplify each other’s shared passions, rally more and more creatives to our cause, and inspire others
+                    to embrace their artistic natures is our profit, nothing more.
+                </div>
+                <div class="about-text">
+                    what was originally drafted as a small creative fashion portfolio has quickly developed into
+                    something so much more, and we’re just getting started.
+                </div>
+                <div class="about-text">
+                    so, you in?
+                </div>
+            </div>
+        </div>
+        <div id="gallery_page" class="pages">
+            <!--            <img id="teaser-img" src="./resources/teaser_allure_subdue_horiz.png" alt="Teaser Image">-->
+<!--            <div id="gallery_samoth" class="samoth gallery">samoth.</div>-->
+<!--            <div id="gallery_subtitle" class="samoth gallery">allure & subdue premiere.</div>-->
+            <div id="gallery_date" class="samoth gallery"></div>
+        </div>
+        <footer>
+<!--            site actively in development. check back later for new features.-->
+            <a href="https://instagram.com/sam0th_">
+                <img id="ig-logo" src="./resources/ig_logo.png" alt="Instagram logo">
+            </a>
+            <a href="">
+                <img id="MT-logo" src="./resources/MT_temp_logo.png" alt="MT logo">
+            </a>
+            <a href="https://github.com/ths22115/ths22115.github.io">
+                <img id="github-logo" src="./resources/github_logo.png" alt="Github logo">
+            </a>
+        </footer>
+    </body>
 </html>

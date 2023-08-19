@@ -1,0 +1,398 @@
+@font-face {
+    font-family: Alata;
+    src: url(./font/Alata-Regular.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%; /* Look, it's not fixed anymore! */
+    /*display: flex;*/
+    flex-direction: column;
+    background-color: #EAEAEA;
+    font-family: Alata, Monaco, serif;
+    font-weight: bold;
+    /*color: black;*/
+}
+
+body{
+    color: #000000;
+    /*color: black;*/
+    width: 100vw;
+    /*height: 100vh;*/
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+header > button {
+    float: left;
+    color: #000000;
+    font-family: Alata;
+    font-size: 20px;
+    width: 20%;
+    text-align: center;
+    font-weight: bold;
+}
+
+button.header_buttons { background:none; border:none; }
+
+.pages {
+    width: auto;
+    height: auto;
+}
+
+#home_page{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    /*padding: 181px 186px 143px 186px;*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#teaser-img-vert {
+    width: 0px;
+    height: 0px;
+    display:none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#teaser-img {
+    width: 1140px;
+    height: 380.001px;
+    display:block;
+    /*margin: 16.875vw 3% 16.25vw;*/
+    /*margin-left:auto;*/
+    /*margin-right:auto;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.samoth {
+    color: #EAEAEA;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+#home_text_sec{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: -8px;
+}
+
+#home_samoth {
+    color: #EAEAEA;
+    /*position: absolute;*/
+    z-index: 0;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+}
+
+#date {
+    color: #EAEAEA;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    z-index: 0;
+    margin-top: -1.4vw;
+    /*position: absolute;*/
+    /*top: 489px;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+}
+
+.home_subtitle {
+    color: #EAEAEA;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+}
+
+#about_page {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    /*padding: 181px 186px 143px 186px;*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-top: -1.857vw;
+}
+
+#about_samoth {
+    color: #000000;
+}
+
+#about_text_sec{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    text-align: center;
+    color: #000000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 1140px;
+}
+
+.gallery {
+    color: #000000;
+    font-size: 75px;
+}
+
+#gallery_page {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    /*padding: 181px 186px 143px 186px;*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    /*margin-bottom: .73vw;*/
+    width: 100%;
+    height: 47px;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+footer > a {
+    float: left;
+    color: #000000;
+    /*font-family: Alata;*/
+    /*font-size: 20px;*/
+    width: 20%;
+    /*text-align: center;*/
+    /*font-weight: bold;*/
+}
+
+#github-logo {
+    width: 35px;
+    height: 35px;
+    color: black;
+    /*float: right;*/
+    /*margin-right: 1vw;*/
+}
+
+#ig-logo {
+    width: 35px;
+    height: 35px;
+    color: black;
+    /*float: right;*/
+    /*margin-right: 1vw;*/
+}
+
+#MT-logo {
+    width: 47.7px;
+    height: 30px;
+    /*float: left;*/
+    /*margin-left: 1vw;*/
+}
+
+@media (max-width: 1199px) {
+    #about_text_sec {
+        max-width: 915px;
+    }
+
+    #teaser-img {
+        width: 915px;
+        height: 305px;
+    }
+
+    .samoth {
+        /*color: #EAEAEA;*/
+        font-size: 77.05px;
+        /*font-style: normal;*/
+        /*font-weight: 400;*/
+    }
+
+    #date {
+        font-size: 19.26px;
+        margin-top: -1.8vw;
+    }
+
+    #gallery_date {
+        max-width: 915px;
+        font-size: 60px;
+    }
+
+}
+
+@media (max-width: 990px) {
+    #about_text_sec {
+        max-width: 680px;
+        font-size: 19px;
+    }
+
+    #teaser-img {
+        width: 700px;
+        height: 233.33px;
+    }
+
+    .samoth {
+        /*color: #EAEAEA;*/
+        font-size: 58.95px;
+        /*font-style: normal;*/
+        /*font-weight: 400;*/
+    }
+
+    #date {
+        font-size: 14.47px;
+        margin-top: -1.72vw;
+    }
+
+    #gallery_date {
+        max-width: 700px;
+        font-size: 45px;
+    }
+
+}
+
+@media (max-width: 765px) {
+    header > button {
+        font-size: 20px;
+        width: 33%;
+    }
+
+    footer > a {
+        /*font-size: 20px;*/
+        width: 33%;
+    }
+
+    #about_text_sec {
+        max-width: 450px;
+        font-size: 17px;
+    }
+
+    #teaser-img {
+        display: none;
+    }
+
+    #teaser-img-vert {
+        width: 300px;
+        height: 756px;
+        display:block;
+    }
+
+    .samoth {
+        font-size: 58.95px;
+        /*font-style: normal;*/
+        /*font-weight: 400;*/
+    }
+
+    #date {
+        font-size: 14.47px;
+        margin-top: -1.9vw;
+    }
+
+    #gallery_date {
+        text-align: center;
+        max-width: 450px;
+        font-size: 56px;
+    }
+
+}
+
+@media (max-width: 576px) {
+    header > button {
+        font-size: 14px;
+        width: 33%;
+    }
+
+    #ig-logo {
+        width: 24.5px;
+        height: 24.5px;
+    }
+
+    #github-logo {
+        width: 24.5px;
+        height: 24.5px;
+    }
+
+    #MT-logo {
+        width: 38.955px;
+        height: 23px;
+        /*float: left;*/
+        /*margin-left: 1vw;*/
+    }
+
+    #about_text_sec {
+        max-width: 245px;
+        font-size: 13px;
+    }
+
+    #teaser-img {
+        display: none;
+    }
+
+    #teaser-img-vert {
+        width: 215px;
+        height: 543.65px;
+        display:block;
+    }
+
+    .samoth {
+        font-size: 54.32px;
+        /*font-style: normal;*/
+        /*font-weight: 400;*/
+    }
+
+    #date {
+        font-size: 13.58px;
+        margin-top: -2.6vw;
+    }
+
+    #gallery_date {
+        max-width: 244px;
+        font-size: 60px;
+    }
+
+}
