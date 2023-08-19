@@ -21,9 +21,9 @@ html {
 
 body{
     color: #000000;
-    /*color: black;*/
+    position: fixed;
     width: 100vw;
-    /*height: 100vh;*/
+    height: 100%;
 }
 
 header {
@@ -342,6 +342,22 @@ footer > a {
 }
 
 @media (max-width: 576px) {
+    #gallery_page {
+        height: 100%;
+    }
+
+    #about_page {
+        height: 100%;
+    }
+
+    #home_text_sec {
+        height: 100%;
+    }
+
+    #home_page {
+        height: 100%;
+    }
+
     header > button {
         font-size: 14px;
         width: 33%;
