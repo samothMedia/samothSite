@@ -65,75 +65,64 @@ button.header_buttons { background:none; border:none; }
     justify-content: center;
 }
 
-#teaser-img-vert {
-    width: 0px;
-    height: 0px;
-    display:none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#home_text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 190px;
 }
 
-#teaser-img {
+#a_s-img {
     width: 1140px;
-    height: 380.001px;
+    height: 467.07px;
     display:block;
-    /*margin: 16.875vw 3% 16.25vw;*/
-    /*margin-left:auto;*/
-    /*margin-right:auto;*/
     position: absolute;
+    z-index: -2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.samoth {
-    color: #EAEAEA;
+.title {
+    /*color: #EAEAEA;*/
     font-size: 96px;
     font-style: normal;
     font-weight: 400;
 }
 
-#home_text_sec{
+.home_title {
+    font-size: 45px;
+}
+
+#home_center_text{
     display: flex;
-    width: 100vw;
     height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: -8px;
+    color: black;
+    padding-left: 10px;
 }
 
-#home_samoth {
-    color: #EAEAEA;
-    /*position: absolute;*/
-    z-index: 0;
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
-}
-
-#date {
-    color: #EAEAEA;
+#home_subtitle {
     font-size: 20px;
     font-style: normal;
-    font-weight: 300;
-    z-index: 0;
-    margin-top: -1.4vw;
+    font-weight: 400;
+    margin-top: -.8vw;
     /*position: absolute;*/
     /*top: 489px;*/
     /*left: 50%;*/
     /*transform: translate(-50%, -50%);*/
 }
 
-.home_subtitle {
+#home_allure {
+    letter-spacing: 1.114px;
     color: #EAEAEA;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    position: absolute;
+}
+
+#home_subdue {
+    color: #EAEAEA;
 }
 
 #about_page {
@@ -247,7 +236,7 @@ footer > a {
         height: 305px;
     }
 
-    .samoth {
+    .title {
         /*color: #EAEAEA;*/
         font-size: 77.05px;
         /*font-style: normal;*/
@@ -277,7 +266,7 @@ footer > a {
         height: 233.33px;
     }
 
-    .samoth {
+    .title {
         /*color: #EAEAEA;*/
         font-size: 58.95px;
         /*font-style: normal;*/
@@ -322,7 +311,7 @@ footer > a {
         display:block;
     }
 
-    .samoth {
+    .title {
         font-size: 58.95px;
         /*font-style: normal;*/
         /*font-weight: 400;*/
@@ -395,7 +384,7 @@ footer > a {
         display:block;
     }
 
-    .samoth {
+    .title {
         font-size: 54.32px;
         /*font-style: normal;*/
         /*font-weight: 400;*/

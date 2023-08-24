@@ -39,32 +39,33 @@ function changeActive(target_page, current_page){
 var countDownDate = new Date("Aug 25, 2023 11:00:00").getTime();
 
 // Update the count down every 1 second
-var timer = setInterval(function() {
-    // Get today's date and time
-    var now = new Date().getTime();
+// var timer = setInterval(function() {
+//     // Get today's date and time
+//     var now = new Date().getTime();
+//
+//     // Find the distance between now and the count down date
+//     var distance = countDownDate - now;
+//
+//     // Time calculations for days, hours, minutes and seconds
+//     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//
+//     // Display the result in the element with id="demo"
+//     document.getElementById("date").innerHTML = days + " days. " + hours + " hrs. "
+//         + minutes + " mins. " + seconds + " secs.";
+//     document.getElementById("gallery_date").innerHTML = days + " days. " + hours + " hrs. "
+//         + minutes + " mins. " + seconds + " secs.";
+//
+//     // If the count down is finished, write some text
+//     if (distance < 0) {
+//         clearInterval(timer);
+//         document.getElementById("date").innerHTML = "out now.";
+//         document.getElementById("gallery_date").innerHTML = "out now.";
+//     }
+// }, 1000);
 
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Display the result in the element with id="demo"
-    document.getElementById("date").innerHTML = days + " days. " + hours + " hrs. "
-        + minutes + " mins. " + seconds + " secs.";
-    document.getElementById("gallery_date").innerHTML = days + " days. " + hours + " hrs. "
-        + minutes + " mins. " + seconds + " secs.";
-
-    // If the count down is finished, write some text
-    if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("date").innerHTML = "out now.";
-        document.getElementById("gallery_date").innerHTML = "out now.";
-    }
-}, 1000);
 
 setTimeout(function() {
     // do something after 1000 milliseconds
@@ -73,3 +74,23 @@ setTimeout(function() {
     console.log(rect.left + ', ' + rect.top);
 }, 4000);
 
+// var tl = anime.timeline({
+//     easing: 'easeOutCubic',
+//     duration: 1200
+// });
+//
+// document.querySelector('.play-pause-demo .play').onclick = animation.play;
+//
+// tl
+//     .add({
+//         targets: '.offsets-demo .el.square',
+//         translateX: 250,
+//     })
+//     .add({
+//         targets: '.offsets-demo .el.circle',
+//         translateX: 250,
+//     }, '-=600') // relative offset
+//     .add({
+//         targets: '.offsets-demo .el.triangle',
+//         translateX: 250,
+//     }, 400); // absolute offset
