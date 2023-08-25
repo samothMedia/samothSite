@@ -73,6 +73,16 @@ button.header_buttons { background:none; border:none; }
     gap: 190px;
 }
 
+#a_s-img-mobile {
+    width: 0px;
+    height: 0px;
+    display:none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #a_s-img {
     width: 1140px;
     height: 467.07px;
@@ -231,7 +241,7 @@ footer > a {
         max-width: 915px;
     }
 
-    #teaser-img {
+    #a_s-img {
         width: 915px;
         height: 305px;
     }
@@ -243,7 +253,11 @@ footer > a {
         /*font-weight: 400;*/
     }
 
-    #date {
+    .home_title {
+        font-size: 37px;
+    }
+
+    #home_subtitle {
         font-size: 19.26px;
         margin-top: -1.8vw;
     }
@@ -261,7 +275,7 @@ footer > a {
         font-size: 19px;
     }
 
-    #teaser-img {
+    #a_s-img {
         width: 700px;
         height: 233.33px;
     }
@@ -273,9 +287,13 @@ footer > a {
         /*font-weight: 400;*/
     }
 
-    #date {
+    .home_title {
+        font-size: 27px;
+    }
+
+    #home_subtitle {
         font-size: 14.47px;
-        margin-top: -1.72vw;
+        margin-top: -1.58vw;
     }
 
     #gallery_date {
@@ -301,13 +319,13 @@ footer > a {
         font-size: 17px;
     }
 
-    #teaser-img {
+    #a_s-img {
         display: none;
     }
 
-    #teaser-img-vert {
-        width: 300px;
-        height: 756px;
+    #a_s-img-mobile {
+        width: 500px;
+        height: 666.81px;
         display:block;
     }
 
@@ -317,7 +335,11 @@ footer > a {
         /*font-weight: 400;*/
     }
 
-    #date {
+    .home_title {
+        font-size: 27px;
+    }
+
+    #home_subtitle {
         font-size: 14.47px;
         margin-top: -1.9vw;
     }
@@ -374,13 +396,13 @@ footer > a {
         font-size: 13px;
     }
 
-    #teaser-img {
+    #a_s-img {
         display: none;
     }
 
-    #teaser-img-vert {
-        width: 215px;
-        height: 543.65px;
+    #a_s-img-mobile {
+        width: 250px;
+        height: 333.065px;
         display:block;
     }
 
@@ -390,7 +412,11 @@ footer > a {
         /*font-weight: 400;*/
     }
 
-    #date {
+    .home_title {
+        font-size: 26px;
+    }
+
+    #home_subtitle {
         font-size: 13.58px;
         margin-top: -2.6vw;
     }
