@@ -36,7 +36,7 @@ function changeActive(target_page, current_page){
 
 
 // set the date we're counting down to
-var countDownDate = new Date("Aug 27, 2023 18:15:00").getTime();
+var countDownDate = new Date("Sep 1, 2023 18:15:00").getTime();
 
 // Update the count down every 1 second
 var timer = setInterval(function() {
@@ -59,7 +59,7 @@ var timer = setInterval(function() {
     //     + minutes + " mins. " + seconds + " secs.";
 
     document.getElementById("home_subtitle").innerHTML = "view on ig.";
-    document.getElementById("gallery_date").innerHTML = "8/27.";
+    document.getElementById("gallery_date").innerHTML = "9/1.";
 
     // If the count down is finished, write some text
     if (distance < 0) {
