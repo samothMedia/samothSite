@@ -10,7 +10,7 @@
         <script src="./node_modules/animejs/lib/anime.min.js"></script>
     </head>
     <body>
-        <header>
+        <header style="z-index: 10">
             <button id="about_button" class="header_buttons" onclick="sectionSwap('about_page')">about.</button>
             <button  id="home_button" class="header_buttons" onclick="sectionSwap('home_page')">home.</button>
             <button id="gallery_button" class="header_buttons" onclick="sectionSwap('gallery_page')">gallery.</button>
@@ -51,11 +51,9 @@
         </div>
         <div id="gallery_page" class="pages">
 <!--            <div id="gallery_date" class="samoth"></div>-->
-            <div id="gallery_focus"></div>
             <div id="gallery_content">
                 <div id="left_gallery_column" class="gallery column">
-                    <img id="topleftgallery" class="gallery_img square grow" src="./resources/img5_gal.png"
-                         alt="gallery image 1" onmouseover="gallery_focus_fun(this)">
+                    <img id="topleftgallery" class="gallery_img square grow" src="./resources/img5_gal.png" alt="gallery image 1">
                     <img id="midleftgallery" class="gallery_img short_rect grow" src="./resources/img8_gal.png" alt="gallery image 1">
                     <img id="botleftgallery" class="gallery_img square grow" src="./resources/img6_gal.png" alt="gallery image 1">
                 </div>
@@ -68,7 +66,6 @@
                     <img id="midrightgallery" class="gallery_img short_rect grow" src="./resources/img1_gal.png" alt="gallery image 1">
                     <img id="botrightgallery" class="gallery_img square grow" src="./resources/img4_gal.png" alt="gallery image 1">
                 </div>
-
 <!--                <div id="gallery_as_header" class="samoth gallery_header">samoth.</div>-->
 <!--                <img class="gallery square" src="./resources/img5_gal.png" alt="gallery image 1">-->
 <!--                <img class="gallery long_rect" src="./resources/img2_gal.png" alt="gallery image 1">-->
@@ -79,8 +76,9 @@
 <!--                <img class="gallery square" src="./resources/img6_gal.png" alt="gallery image 1">-->
 <!--                <img class="gallery square" src="./resources/img4_gal.png" alt="gallery image 1">-->
             </div>
+            <div id="gallery_focus" style="opacity: 0; z-index: -10;"></div>
         </div>
-        <footer>
+        <footer style="z-index: 10">
 <!--            site actively in development. check back later for new features.-->
             <a href="https://instagram.com/sam0th_">
                 <img id="ig-logo" src="./resources/ig_logo.png" alt="Instagram logo">
