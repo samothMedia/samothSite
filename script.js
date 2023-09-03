@@ -59,7 +59,7 @@ var timer = setInterval(function() {
     //     + minutes + " mins. " + seconds + " secs.";
 
     document.getElementById("home_subtitle").innerHTML = "view on ig.";
-    document.getElementById("gallery_date").innerHTML = "9/1.";
+    document.getElementById("gallery_date").innerHTML = "9/3.";
 
     // If the count down is finished, write some text
     if (distance < 0) {
