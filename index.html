@@ -7,6 +7,7 @@
         <title>samoth.</title>
         <script src="script.js"></script>
         <script src="https://kit.fontawesome.com/3424007297.js" crossorigin="anonymous"></script>
+        <script src="./node_modules/animejs/lib/anime.min.js"></script>
     </head>
     <body>
         <header>
@@ -50,16 +51,33 @@
         </div>
         <div id="gallery_page" class="pages">
 <!--            <div id="gallery_date" class="samoth"></div>-->
+            <div id="gallery_focus"></div>
             <div id="gallery_content">
+                <div id="left_gallery_column" class="gallery column">
+                    <img id="topleftgallery" class="gallery_img square grow" src="./resources/img5_gal.png"
+                         alt="gallery image 1" onmouseover="gallery_focus_fun(this)">
+                    <img id="midleftgallery" class="gallery_img short_rect grow" src="./resources/img8_gal.png" alt="gallery image 1">
+                    <img id="botleftgallery" class="gallery_img square grow" src="./resources/img6_gal.png" alt="gallery image 1">
+                </div>
+                <div id="mid_gallery_column" class="gallery column middle_col">
+                    <img id="topmidgallery" class="gallery_img long_rect grow" src="./resources/img2_gal.png" alt="gallery image 1">
+                    <img id="botmidgallery" class="gallery_img long_rect grow" src="./resources/img7_gal.png" alt="gallery image 1">
+                </div>
+                <div id="right_gallery_column" class="gallery column">
+                    <img id="toprightgallery" class="gallery_img square grow" src="./resources/img3_gal.png" alt="gallery image 1">
+                    <img id="midrightgallery" class="gallery_img short_rect grow" src="./resources/img1_gal.png" alt="gallery image 1">
+                    <img id="botrightgallery" class="gallery_img square grow" src="./resources/img4_gal.png" alt="gallery image 1">
+                </div>
+
 <!--                <div id="gallery_as_header" class="samoth gallery_header">samoth.</div>-->
-                <img class="gallery square" src="./resources/img5_gal.png" alt="gallery image 1">
-                <img class="gallery long_rect" src="./resources/img2_gal.png" alt="gallery image 1">
-                <img class="gallery square" src="./resources/img3_gal.png" alt="gallery image 1">
-                <img class="gallery short_rect" src="./resources/img8_gal.png" alt="gallery image 1">
-                <img class="gallery long_rect" src="./resources/img7_gal.png" alt="gallery image 1">
-                <img class="gallery short_rect" src="./resources/img1_gal.png" alt="gallery image 1">
-                <img class="gallery square" src="./resources/img6_gal.png" alt="gallery image 1">
-                <img class="gallery square" src="./resources/img4_gal.png" alt="gallery image 1">
+<!--                <img class="gallery square" src="./resources/img5_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery long_rect" src="./resources/img2_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery square" src="./resources/img3_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery short_rect" src="./resources/img8_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery long_rect" src="./resources/img7_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery short_rect" src="./resources/img1_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery square" src="./resources/img6_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery square" src="./resources/img4_gal.png" alt="gallery image 1">-->
             </div>
         </div>
         <footer>

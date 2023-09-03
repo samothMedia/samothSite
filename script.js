@@ -1,6 +1,8 @@
+// const anime = require('animejs');
+
 window.onload = (event) => {
     const pages = document.querySelectorAll("div.pages");
-    const starting_page = "home_page";
+    const starting_page = "gallery_page";
     for (let i = 0; i < pages.length; i++) {
         if (pages[i].id === starting_page) {
             pages[i].style.display = "flex";
@@ -32,44 +34,87 @@ function changeActive(target_page, current_page){
     current_page.style.display = "none";
     //set new active section visible
     target_page.style.display = "flex";
+
 }
 
+// setTimeout(function() {
+//     // do something after 1000 milliseconds
+//     var target = document.getElementById("home_samoth");
+//     var rect = target.getBoundingClientRect()
+//     console.log(rect.left + ', ' + rect.top);
+// }, 4000);
 
-// set the date we're counting down to
-var countDownDate = new Date("Aug 25, 2023 18:15:00").getTime();
+// var controlsProgressEl = document.querySelector('.timeline-controls-demo .progress');
+//
+// var tl = anime.timeline({
+//     direction: 'alternate',
+//     loop: true,
+//     duration: 500,
+//     easing: 'easeInOutSine',
+//     update: function(anim) {
+//         controlsProgressEl.value = tl.progress;
+//     }
+// });
+//
+// tl
+//     .add({
+//         targets: '.timeline-controls-demo .square.el',
+//         translateX: 270,
+//     })
+//     .add({
+//         targets: '.timeline-controls-demo .circle.el',
+//         translateX: 270,
+//     }, '-=100')
+//     .add({
+//         targets: '.timeline-controls-demo .triangle.el',
+//         translateX: 270,
+//     }, '-=100');
+//
+// var gallery_focus = anime({
+//     targets: '.css-selector-demo .el',
+//     translateX: 250
+// });
 
-// Update the count down every 1 second
-var timer = setInterval(function() {
-    // Get today's date and time
-    var now = new Date().getTime();
+function gallery_focus_fun (img) {
+    console.log(img);
+    var gallery_focus = anime({
+        targets: img,
+        scale: 105,
+        duration: 400,
+        easing:'easeInCubic',
+    });
+}
 
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
+const gallery_imgs = document.querySelectorAll("img.gallery_img");
 
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+// for (var i = 0; i < gallery_imgs.length; i++) {
+//     const img = gallery_imgs[i];
+//     console.log(img);
+//     img.addEventListener("onmouseover", function() {
+//         console.log(img);
+//         gallery_focus_fun(img);
+//     });
+// }
+// gallery_imgs.forEach(function(img) {
+//     img.addEventListener("mouseenter", function() {
+//         gallery_focus_fun(img);
+//     });
+// })
 
-    // Display the result in the element with id="demo"
-    document.getElementById("date").innerHTML = days + " days. " + hours + " hrs. "
-        + minutes + " mins. " + seconds + " secs.";
-    document.getElementById("gallery_date").innerHTML = days + " days. " + hours + " hrs. "
-        + minutes + " mins. " + seconds + " secs.";
+    //
+    // mouseBlue.addEventListener("mouseout", function(e) {
+    //     console.log("e.target.classList mouseBlue :", e.target.classList);
+    //     mouseBlue.classList.toggle("open");
+    // })
+// })
 
-    // If the count down is finished, write some text
-    if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("date").innerHTML = "out now.";
-        document.getElementById("gallery_date").innerHTML = "out now.";
-    }
-}, 1000);
 
-setTimeout(function() {
-    // do something after 1000 milliseconds
-    var target = document.getElementById("home_samoth");
-    var rect = target.getBoundingClientRect()
-    console.log(rect.left + ', ' + rect.top);
-}, 4000);
-
+// function gallery_focus()
+//
+// document.querySelector('img.gallery').onhover = tl.play;
+// document.querySelector('.timeline-controls-demo .pause').onclick = tl.pause;
+// document.querySelector('.timeline-controls-demo .restart').onclick = tl.restart;
+//
+// controlsProgressEl.addEventListener('input', function() {
+//     tl.seek(tl.duration * (controlsProgressEl.value / 100));
+// });
