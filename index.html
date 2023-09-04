@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>samoth.</title>
-        <script src="script.js"></script>
+        <script defer src="script.js"></script>
         <script src="https://kit.fontawesome.com/3424007297.js" crossorigin="anonymous"></script>
         <script src="./node_modules/animejs/lib/anime.min.js"></script>
     </head>
@@ -15,8 +15,12 @@
             <button  id="home_button" class="header_buttons" onclick="sectionSwap('home_page')">home.</button>
             <button id="gallery_button" class="header_buttons" onclick="sectionSwap('gallery_page')">gallery.</button>
         </header>
+        <div id="loading_page">
+            <div id="loading_progress_counter">0%.</div>
+            <div id="loading_samoth" class="samoth" style="display: none;">samoth.</div>
+        </div>
         <div id="home_page" class="pages">
-            <img id="teaser-img" src="./resources/teaser_allure_subdue_horiz.png" alt="Teaser Image">
+            <img id="teaser-img" src="./resources/teaser_allure_subdue_horiz.png" alt="Teaser Image" >
             <img id="teaser-img-vert" src="./resources/teaser_allure_subdue_vert.png" alt="Teaser Image Vertical">
             <div id="home_text_sec">
                 <div id="home_samoth" class="samoth">samoth.</div>
@@ -53,7 +57,9 @@
 <!--            <div id="gallery_date" class="samoth"></div>-->
             <div id="gallery_content">
                 <div id="left_gallery_column" class="gallery column">
-                    <img id="topleftgallery" class="gallery_img square grow" src="./resources/img5_gal.png" alt="gallery image 1">
+<!--                    <div class="img_wrapper" style="z-index: 10">-->
+                        <img id="topleftgallery" class="gallery_img square grow" src="./resources/img5_gal.png" alt="gallery image 1">
+<!--                    </div>-->
                     <img id="midleftgallery" class="gallery_img short_rect grow" src="./resources/img8_gal.png" alt="gallery image 1">
                     <img id="botleftgallery" class="gallery_img square grow" src="./resources/img6_gal.png" alt="gallery image 1">
                 </div>
@@ -81,13 +87,16 @@
         <footer style="z-index: 10">
 <!--            site actively in development. check back later for new features.-->
             <a href="https://instagram.com/sam0th_">
-                <img id="ig-logo" src="./resources/ig_logo.png" alt="Instagram logo">
+                <img id="ig-logo-black" class="footer_buttons black_footer ig-logo" src="./resources/ig_logo.png" alt="Instagram logo">
+                <img id="ig-logo-white" class="footer_buttons white_footer ig-logo" src="./resources/ig_logo_white.png" alt="Instagram logo white" style="display: none">
             </a>
             <a href="">
-                <img id="MT-logo" src="./resources/MT_temp_logo.png" alt="MT logo">
+                <img id="MT-logo-black" class="footer_buttons black_footer mt-logo" src="./resources/MT_temp_logo.png" alt="MT logo">
+                <img id="MT-logo-white" class="footer_buttons white_footer mt-logo" src="./resources/MT_temp_logo_white.png" alt="MT logo white" style="display: none">
             </a>
             <a href="https://github.com/ths22115/samoth">
-                <img id="github-logo" src="./resources/github_logo.png" alt="Github logo">
+                <img id="github-logo-black" class="footer_buttons black_footer github-logo"  src="./resources/github_logo.png" alt="Github logo">
+                <img id="github-logo-white" class="footer_buttons white_footer github-logo" src="./resources/github_logo_white.png" alt="Github logo white" style="display: none">
             </a>
         </footer>
     </body>
