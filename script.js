@@ -274,9 +274,6 @@ function gallery_focus_fun (img, all_imgs, mask, header_items, black_footer_item
     });
 }
 
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-
 function gallery_unfocus_fun (img, all_imgs, mask, header_items, black_footer_items, white_footer_items) {
     all_imgs.forEach(function(all_img) {
        all_img.style.zIndex = 0;
