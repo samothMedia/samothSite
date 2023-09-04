@@ -23,7 +23,7 @@ window.onload = (event) => {
         };
     })
     header_items.forEach(function(header_item) {
-        console.log(header_item)
+        // console.log(header_item)
         header_item.addEventListener("click", function() {
             page_anime(header_item.id);
         });
@@ -44,7 +44,7 @@ function loading_anime() {
     var loading_page = document.querySelector("#loading_page")
     var loading_counter = document.querySelector("#loading_progress_counter");
     var loading_samoth = document.querySelector("#loading_samoth")
-    console.log(loading_counter);
+    // console.log(loading_counter);
     loading_counter.innerHTML = "5%.";
     setTimeout(function() {
         loading_counter.innerHTML = "25%.";
@@ -96,7 +96,7 @@ function loading_anime() {
         })
     }, 8500);
 
-    console.log("???");
+    // console.log("???");
 }
 
 function page_anime(page_header_id) {
@@ -215,7 +215,7 @@ function gallery_focus_fun (img, all_imgs, mask, header_items, black_footer_item
     })
     mask.style.zIndex = 5;
 
-    console.log(img)
+    // console.log(img)
 
     anime({
         targets: img,
