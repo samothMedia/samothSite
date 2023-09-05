@@ -17,6 +17,7 @@ html {
     font-family: Alata, Monaco, serif;
     font-weight: bold;
     /*color: black;*/
+    filter: brightness(100%);
 }
 
 body{
@@ -25,6 +26,11 @@ body{
     width: 100vw;
     height: 100%;
 }
+
+/*img {*/
+/*    pointer-events: none;*/
+/*    user-select: none;*/
+/*}*/
 
 header {
     position: fixed;
@@ -49,6 +55,30 @@ header > button {
 }
 
 button.header_buttons { background:none; border:none; }
+
+#loading_page {
+    display: flex;
+    z-index: 50;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background-color: #EAEAEA;
+    align-items: center;
+    justify-content: center;
+}
+
+#loading_progress_counter {
+    text-align: center;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#loading_samoth {
+    color: black;
+}
+
 
 .pages {
     width: auto;
@@ -181,6 +211,64 @@ button.header_buttons { background:none; border:none; }
     flex-shrink: 0;
 }
 
+#gallery_focus {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background-color: black;
+}
+
+#gallery_content { /*still needs tweaking + mobile responsiveness*/
+    display: flex;
+    margin: 47px 0 49px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    max-height: 100%;
+    overflow: auto;
+    /*grid-template-columns: repeat(3, 31%);*/
+    justify-content: space-evenly;
+    /*padding-left: 1.4%;*/
+    /*padding-right: 1.4%;*/
+}
+
+div.gallery.column {
+    display: flex;
+    row-gap: 21px;
+    flex-direction: column;
+}
+
+div.gallery.column.middle_col {
+    justify-content: center;
+}
+
+img {
+    /*filter: brightness(0%);*/
+}
+
+img.gallery_img {
+    width: 31vw;
+}
+
+img.square {
+    height: 31vw;
+}
+
+img.long_rect {
+    height: 46.57vw;
+}
+
+img.short_rect {
+    height: 35.49vw;
+}
+
+img.gallery_img:hover{
+    /*scale: 120%;*/
+}
+
+/*.grow { transition: all .2s ease-in-out; }*/
+/*.grow:hover { transform: scale(1.05); }*/
+
 footer {
     position: fixed;
     left: 0;
@@ -193,47 +281,38 @@ footer {
 
 footer {
     position: fixed;
+    display: flex;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 47px;
-    display: flex;
     justify-content: center;
     align-items: center;
     overflow: auto;
 }
 
 footer > a {
+    display: flex;
     float: left;
+    justify-content: center;
+    align-items: center;
     color: #000000;
-    /*font-family: Alata;*/
-    /*font-size: 20px;*/
     width: 20%;
-    /*text-align: center;*/
-    /*font-weight: bold;*/
 }
 
-#github-logo {
+.github-logo {
     width: 35px;
     height: 35px;
-    color: black;
-    /*float: right;*/
-    /*margin-right: 1vw;*/
 }
 
-#ig-logo {
+.ig-logo {
     width: 35px;
     height: 35px;
-    color: black;
-    /*float: right;*/
-    /*margin-right: 1vw;*/
 }
 
-#MT-logo {
+.mt-logo {
     width: 47.7px;
     height: 30px;
-    /*float: left;*/
-    /*margin-left: 1vw;*/
 }
 
 @media (max-width: 1199px) {
@@ -374,17 +453,17 @@ footer > a {
         width: 33%;
     }
 
-    #ig-logo {
+    .ig-logo {
         width: 24.5px;
         height: 24.5px;
     }
 
-    #github-logo {
+    .github-logo {
         width: 24.5px;
         height: 24.5px;
     }
 
-    #MT-logo {
+    .mt-logo {
         width: 38.955px;
         height: 23px;
         /*float: left;*/
