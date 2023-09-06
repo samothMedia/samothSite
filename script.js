@@ -163,44 +163,6 @@ function changeActive(target_page, current_page){
 
 }
 
-// setTimeout(function() {
-//     // do something after 1000 milliseconds
-//     var target = document.getElementById("home_samoth");
-//     var rect = target.getBoundingClientRect()
-//     console.log(rect.left + ', ' + rect.top);
-// }, 4000);
-
-// var controlsProgressEl = document.querySelector('.timeline-controls-demo .progress');
-//
-// var tl = anime.timeline({
-//     direction: 'alternate',
-//     loop: true,
-//     duration: 500,
-//     easing: 'easeInOutSine',
-//     update: function(anim) {
-//         controlsProgressEl.value = tl.progress;
-//     }
-// });
-//
-// tl
-//     .add({
-//         targets: '.timeline-controls-demo .square.el',
-//         translateX: 270,
-//     })
-//     .add({
-//         targets: '.timeline-controls-demo .circle.el',
-//         translateX: 270,
-//     }, '-=100')
-//     .add({
-//         targets: '.timeline-controls-demo .triangle.el',
-//         translateX: 270,
-//     }, '-=100');
-//
-// var gallery_focus = anime({
-//     targets: '.css-selector-demo .el',
-//     translateX: 250
-// });
-
 function gallery_focus_fun (img, all_imgs, mask, header_items, black_footer_items, white_footer_items) {
     all_imgs.forEach(function(other_img) {
         if (other_img === img) {
@@ -215,7 +177,7 @@ function gallery_focus_fun (img, all_imgs, mask, header_items, black_footer_item
     })
     mask.style.zIndex = 5;
 
-    // console.log(img)
+    console.log(img)
 
     anime({
         targets: img,
@@ -328,16 +290,3 @@ function gallery_unfocus_fun (img, all_imgs, mask, header_items, black_footer_it
         easing:'linear',
     });
 }
-
-
-
-// for (var i = 0; i < gallery_imgs.length; i++) {
-//     const img = gallery_imgs[i];
-//     console.log(img);
-    // img.addEventListener("onmouseover", function() {
-    //     console.log(img);
-    //     gallery_focus_fun(img);
-    // });
-// }
-
-
