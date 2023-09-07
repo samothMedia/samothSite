@@ -1,5 +1,5 @@
 window.onload = (event) => {
-    // loading_anime();
+    loading_anime();
     const pages = document.querySelectorAll("div.pages");
     // const wrappers = document.querySelectorAll(".img_wrapper");
     const gallery_imgs = document.querySelectorAll("img.gallery_img");

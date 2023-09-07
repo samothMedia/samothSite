@@ -56,21 +56,21 @@ header > button {
 
 button.header_buttons { background:none; border:none; }
 
-#bug_fix_blocker {
-    display: flex;
-    z-index: 50;
-    position: absolute;
-    width: 100vw;
-    height: 100%;
-    background-color: #EAEAEA;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+/*#bug_fix_blocker {*/
+/*    display: flex;*/
+/*    z-index: 50;*/
+/*    position: absolute;*/
+/*    width: 100vw;*/
+/*    height: 100%;*/
+/*    background-color: #EAEAEA;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
 
 #loading_page {
     display: flex;
-    /*z-index: 50;*/
+    z-index: 50;
     position: absolute;
     width: 100vw;
     height: 100%;
