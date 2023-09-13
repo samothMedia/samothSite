@@ -1,5 +1,5 @@
 window.onload = (event) => {
-    loading_anime();
+    // loading_anime();
     const pages = document.querySelectorAll("div.pages");
     // const wrappers = document.querySelectorAll(".img_wrapper");
     const gallery_imgs = document.querySelectorAll("img.gallery_img");
@@ -29,7 +29,7 @@ window.onload = (event) => {
         });
     })
 
-    const starting_page = "home_page";
+    const starting_page = "about_page";
     for (let i = 0; i < pages.length; i++) {
         if (pages[i].id === starting_page) {
             pages[i].style.display = "flex";
