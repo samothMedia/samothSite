@@ -255,7 +255,7 @@ div.gallery.column.middle_col {
 }
 
 img {
-    /*filter: brightness(0%);*/
+    filter: brightness(0%);
 }
 
 img.gallery_img {
@@ -277,9 +277,6 @@ img.short_rect {
 img.gallery_img:hover{
     /*scale: 120%;*/
 }
-
-/*.grow { transition: all .2s ease-in-out; }*/
-/*.grow:hover { transform: scale(1.05); }*/
 
 footer {
     position: fixed;
