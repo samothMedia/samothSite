@@ -176,28 +176,7 @@ function gallery_focus_fun (img, all_imgs, mask, header_items, black_footer_item
         header_item.style.zIndex = 20;
     })
     mask.style.zIndex = 5;
-
-    // $(img).addClass('galleryImgFocus');
-    // $(mask).addClass('maskOn');
-    // header_items.forEach(function(header_item) {
-    //     $(header_item).addClass('headerColorInvert');
-    // })
-    //
-    // black_footer_items.forEach(function(black_footer_item) {
-    //     $(black_footer_item).addClass('headerColorInvert');
-    // })
-    //
-    // setTimeout(function() {
-    //     black_footer_items.forEach(function(black_footer_item) {
-    //         black_footer_item.style.display = "none";
-    //     })
-    //     white_footer_items.forEach(function(white_footer_item) {
-    //         white_footer_item.style.display = "flex";
-    //         $(white_footer_item).addClass('headerColorInvert');
-    //     })
-    // }, 100);
-
-
+    
     anime({
         targets: img,
         scale: 1.06,
