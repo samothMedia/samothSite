@@ -176,9 +176,7 @@ function gallery_focus_fun (img, all_imgs, mask, header_items, black_footer_item
         header_item.style.zIndex = 20;
     })
     mask.style.zIndex = 5;
-
-    console.log(img)
-
+    
     anime({
         targets: img,
         scale: 1.06,
@@ -226,8 +224,8 @@ function gallery_focus_fun (img, all_imgs, mask, header_items, black_footer_item
             })
         }
     });
-    // black_footer_items.style.display = "none";
-    // white_footer_items.style.display = "flex";
+    black_footer_items.style.display = "none";
+    white_footer_items.style.display = "flex";
     anime({
         targets: white_footer_items,
         opacity: 100,
