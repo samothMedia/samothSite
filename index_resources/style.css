@@ -13,7 +13,7 @@ html {
     min-height: 100%; /* Look, it's not fixed anymore! */
     /*display: flex;*/
     flex-direction: column;
-    background-color: #0f0f0f;
+    background-color: #eaeaea;
     font-family: Alata, Monaco, serif;
     font-weight: bold;
     /*color: black;*/
@@ -65,12 +65,24 @@ header {
     background:none;
     border:none;
     color: #000000;
+    opacity: 50%;
     font-family: Alata, Monaco, serif;
     font-size: 22px;
     width: auto;
     text-align: center;
     font-weight: normal;
 
+}
+
+.active_page_button {
+    color: #980000;
+    opacity: 100%;
+}
+
+.gallary_focus {
+    color: #eaeaea;
+    opacity: 100%;
+    transition-duration: 200ms;
 }
 
 #landing_page {
@@ -123,8 +135,11 @@ header {
 
 
 .pages {
-    width: auto;
-    height: auto;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
 }
 
 #home_page{
@@ -237,6 +252,25 @@ header {
     max-width: 1140px;
 }
 
+
+/*projects page*/
+
+#projects_page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#projects_comingSoon {
+    text-align: center;
+
+}
+
+
+/*gallery page:*/
+
 .gallery {
     color: #000000;
     font-size: 75px;
@@ -258,11 +292,13 @@ header {
     width: 100vw;
     height: 100%;
     background-color: black;
+    pointer-events: none;
+    z-index: 50;
 }
 
 #gallery_content { /*still needs tweaking + mobile responsiveness*/
     display: flex;
-    margin: 47px 0 49px 0;
+    margin: 55px 0 49px 0;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
@@ -354,6 +390,10 @@ footer > a {
 .mt-logo {
     width: 47.7px;
     height: 30px;
+}
+
+.white_footer {
+    opacity: 40%;
 }
 
 
