@@ -1,6 +1,6 @@
 @font-face {
     font-family: Alata;
-    src: url(./font/Alata-Regular.ttf);
+    src: url(../font/Alata-Regular.ttf);
 }
 
 * {
@@ -47,7 +47,7 @@ header {
 header > button {
     float: left;
     color: #000000;
-    font-family: Alata;
+    font-family: Alata, Monaco, serif;
     font-size: 20px;
     width: 20%;
     text-align: center;
@@ -127,7 +127,7 @@ button.header_buttons { background:none; border:none; }
 
 #a_s-img {
     width: 1140px;
-    height: 467.07px;
+    height: 467px;
     display:block;
     position: absolute;
     z-index: -2;
@@ -169,7 +169,7 @@ button.header_buttons { background:none; border:none; }
 }
 
 #home_allure {
-    letter-spacing: 1.114px;
+    letter-spacing: 1px;
     color: #EAEAEA;
 }
 
@@ -324,6 +324,42 @@ footer > a {
     height: 30px;
 }
 
+
+.galleryImgFocus {
+   animation: focus 200ms ease-in 1;
+}
+@keyframes focus {
+    from { scale: 1; }
+    to { scale: 1.06; }
+}
+
+.maskOn {
+    animation: maskOn 200ms linear 1;
+}
+@keyframes maskOn {
+    from { opacity: 0; }
+    to { opacity: .87; }
+}
+
+.headerColorInvert {
+    animation: colorInvert 200ms linear 1;
+}
+@keyframes colorInvert {
+    from { color: black; }
+    to { color: #EAEAEA; }
+}
+
+.FooterFadeOut {
+    animation: footerFade 100ms linear 1;
+}
+.FooterFadeIn {
+    animation: footerFade 100ms linear reverse 1;
+}
+@keyframes footerFade {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 @media (max-width: 1199px) {
     #about_text_sec {
         max-width: 915px;
@@ -336,7 +372,7 @@ footer > a {
 
     .title {
         /*color: #EAEAEA;*/
-        font-size: 77.05px;
+        font-size: 77px;
         /*font-style: normal;*/
         /*font-weight: 400;*/
     }
