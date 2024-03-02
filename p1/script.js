@@ -1,5 +1,7 @@
+var isSpotlight = false;
+
 window.onload = (event) => {
-    loading_anime();
+    // loading_anime();
     const pages = document.querySelectorAll("div.pages");
     // const wrappers = document.querySelectorAll(".img_wrapper");
     const gallery_imgs = document.querySelectorAll("img.gallery_img");
@@ -13,27 +15,29 @@ window.onload = (event) => {
     gallery_imgs.forEach(function(img) {
         // console.log(img);
         img.addEventListener("mouseenter", function() {
-            gallery_focus_imageLayering(img, gallery_imgs);
-            gallery_focus_headerLayering(header_items, header_title, header);
-            gallery_focus_imgAnime(img, mask);
-            gallery_focus_headerAnime(header_items, header_title);
-            gallery_focus_footerAnime(black_footer_items, white_footer_items);
-
-            // gallery_focus(img, gallery_imgs, mask, header_title, header_items, black_footer_items, white_footer_items);
+            if (!isSpotlight) {
+                gallery_focus_Layering(img, header, header_title, header_items);
+                gallery_focus_imgAnime(img, mask);
+                gallery_focus_headerAnime(header_items, header_title);
+                gallery_focus_footerAnime(black_footer_items, white_footer_items);
+            }
         });
 
         img.addEventListener("mouseleave", function() {
-            gallery_unfocus_Layering(gallery_imgs, header_items, header_title, header);
-            gallery_unfocus_imgAnime(img, mask);
-            gallery_unfocus_headerAnime(header_items, header_title);
-            gallery_unfocus_footerAnime(white_footer_items, black_footer_items);
-
-            // gallery_unfocus(img, gallery_imgs, mask, header_title, header_items, black_footer_items, white_footer_items);
+            if (!isSpotlight) {
+                gallery_unfocus_Layering(gallery_imgs, header_items, header_title, header);
+                gallery_unfocus_imgAnime(img, mask);
+                gallery_unfocus_headerAnime(header_items, header_title);
+                gallery_unfocus_footerAnime(white_footer_items, black_footer_items);
+            }
         });
 
-        img.oncontextmenu = function() {
-            return false;
-        };
+        img.addEventListener("click", function() {
+            isSpotlight = true;
+            gallery_spotlightLayering(img, header, mask);
+            // gallery_spotlightAnime(img, mask);
+            // gallery_unfocus(img, gallery_imgs, mask, header_title, header_items, black_footer_items, white_footer_items);
+        });
     })
     header_items.forEach(function(header_item) {
         // console.log(header_item)
@@ -43,7 +47,7 @@ window.onload = (event) => {
         });
     })
 
-    const starting_page = "home";
+    const starting_page = "gallery";
 
     for (let i = 0; i < pages.length; i++) {
         if (pages[i].id === starting_page + "_page") {
@@ -190,18 +194,9 @@ function changeActiveButton(target_button, current_button) {
     $(target_button).addClass("active_page_button");
 }
 
-function gallery_focus_imageLayering(img, all_imgs) {
-    all_imgs.forEach(function(other_img) {
-        if (other_img === img) {
-            other_img.style.zIndex = 100;
-        }
-        else {
-            other_img.style.zIndex = -10;
-        }
-    })
-}
+function gallery_focus_Layering(target_img, header, header_title, header_items) {
+    target_img.style.zIndex = 100;
 
-function gallery_focus_headerLayering(header_items, header_title, header) {
     header_items.forEach(function(header_item) {
         header_item.style.zIndex = 100;
     })
@@ -260,90 +255,9 @@ function gallery_focus_footerAnime(black_footer_items, white_footer_items) {
     });
 }
 
-
-function gallery_focus(img, all_imgs, mask, header_title, header_items, black_footer_items, white_footer_items) {
-    all_imgs.forEach(function(other_img) {
-        if (other_img === img) {
-            other_img.style.zIndex = 100;
-        }
-        else {
-            other_img.style.zIndex = -10;
-        }
-    })
-    header_items.forEach(function(header_item) {
-        header_item.style.zIndex = 100;
-    })
-    header_title.style.zIndex = 100;
-    var header = document.querySelector("header")
-    header.style.zIndex = 100;
-    header.style.backgroundColor = "transparent";
-    
-    anime({
-        targets: img,
-        scale: 1.06,
-        duration: 200,
-        easing:'easeInCubic',
-    });
-
-    anime({
-        targets: mask,
-        opacity: .87,
-        duration: 200,
-        easing:'linear',
-        // loop: true,
-        // update: function(anim) {
-        //     if (Math.round(anim.progress) > 98) {
-        //         mask.style.opacity = "85%";
-        //         mask.style.display = "block"
-        //     }
-        // }
-    });
-
-    header_items.forEach(function(header_item) {
-        $(header_item).addClass("gallary_focus");
-    })
-    $(header_title).addClass("gallary_focus")
-
-    // anime({
-    //     targets: header_items,
-    //     color: "#EAEAEA",
-    //     // textShadow: [
-    //     //     {
-    //     //         "value": "0 0 10px #EAEAEA",
-    //     //         "delay": 0,
-    //     //     }],
-    //     duration: 200,
-    //     easing:'linear',
-    // });
-
-    anime({
-        targets: black_footer_items,
-        opacity: 0,
-        duration: 100,
-        easing:'linear',
-        complete: function () {
-            black_footer_items.forEach(function(footer_item) {
-                footer_item.style.display = "none";
-            })
-            white_footer_items.forEach(function(footer_item) {
-                footer_item.style.display = "flex";
-            })
-        }
-    });
-    black_footer_items.style.display = "none";
-    white_footer_items.style.display = "flex";
-    anime({
-        targets: white_footer_items,
-        opacity: 100,
-        duration: 100,
-        easing:'linear',
-    });
-}
-
-
 function gallery_unfocus_Layering(all_imgs, header_items, header_title, header) {
-    all_imgs.forEach(function(all_img) {
-        all_img.style.zIndex = 0;
+    all_imgs.forEach(function(imgs) {
+        imgs.style.zIndex = 0;
     })
     header_items.forEach(function(header_item) {
         header_item.style.zIndex = 5;
@@ -464,3 +378,63 @@ function gallery_unfocus(img, all_imgs, mask, header_title, header_items, black_
         easing:'linear',
     });
 }
+
+
+function disableScroll() {
+    // Get the current page scroll position
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        // if any scroll is attempted,
+        // set this to the previous value
+        window.onscroll = function () {
+            window.scrollTo(scrollLeft, scrollTop);
+        };
+}
+
+function enableScroll() {
+    window.onscroll = function () { };
+}
+
+function gallery_spotlightLayering(target_img, header, mask) {
+    disableScroll();
+
+    target_img.style.zIndex = 100;
+
+    var headerHeight = parseInt(window.getComputedStyle(header).getPropertyValue("height"))
+    var spotlightMargin = headerHeight  * 1.5
+    console.log(spotlightMargin)
+
+    var windowHeight = parseInt(window.getComputedStyle(document.querySelector("#gallery_page")).getPropertyValue('height'));
+    console.log(windowHeight)
+
+    var newHeight = windowHeight - spotlightMargin * 2;
+    var currentHeight = parseInt(window.getComputedStyle(target_img).getPropertyValue('height'))
+
+    var targetScale = Math.round(newHeight / currentHeight * 100)
+    console.log(parseInt(window.getComputedStyle(target_img).getPropertyValue('height')))
+    console.log(targetScale)
+
+    // target_img.style.position = 'absolute';
+
+    //calculate translateX & Y values that will center target_img based on current X & Y instead of moving img
+
+    anime({
+        targets: target_img,
+        scale: targetScale.toString() + '%',
+        // top: '50%',
+        // left: '50%',
+        translateX: '-50%',
+        translateY: '-50%',
+        duration: 400,
+        easing:'easeInCubic',
+    });
+
+    anime({
+        targets: mask,
+        opacity: .96,
+        duration: 400,
+        easing:'linear',
+    });
+}
+
