@@ -21,27 +21,40 @@
         <script defer src="p1/script.js"></script>
     </head>
     <body>
-        <header id="header" style="z-index: 10">
+        <header id="header">
           <div id="header_samoth" class="header_title">samoth.</div>
-          <div id="header_button_container">
-            <button  id="home_button" class="header_buttons" onclick="sectionSwap('home')">home.</button>
-            <button id="about_button" class="header_buttons" onclick="sectionSwap('about')">about.</button>
-            <button  id="projects_button" class="header_buttons" onclick="sectionSwap('projects')">projects.</button>
-            <button id="gallery_button" class="header_buttons" onclick="sectionSwap('gallery')">gallery.</button>
+          <div id="header_button_container" class="button_container">
+            <button  id="home_button" class="header_buttons navbar_buttons home" value="home">home.</button>
+            <button id="about_button" class="header_buttons navbar_buttons about" value="about">about.</button>
+            <button  id="projects_button" class="header_buttons navbar_buttons projects" value="projects">projects.</button>
+            <button id="gallery_button" class="header_buttons navbar_buttons gallery" value="gallery">gallery.</button>
           </div>
+        </header>
+        <header id="mobile_header">
+          <a href="https://instagram.com/sam0th_" class="mobile_header_buttons" target="_blank">
+            <img id="mobile-ig-logo-black" class="mobile header_imgs black black_header ig-logo" src="./p1/resources/ig_logo.png" alt="Instagram logo">
+            <img id="mobile-ig-logo-white" class="mobile header_imgs white white_header ig-logo" src="./p1/resources/ig_logo_white.png" alt="Instagram logo white">
+            <!--              <img id="ig-logo-p2red" class="footer_buttons ig-logo" src="index_resources/ig_logo_p2redv2.png" alt="Instagram logo red">-->
+          </a>
+          <div id="mobile_header_samoth" class="mobile header_title teaser_text">samoth.</div>
+          <a href="https://github.com/ths22115/samoth" class="mobile_header_buttons" target="_blank">
+            <img id="mobile-github-logo-black" class="mobile header_imgs black black_header github-logo"  src="./p1/resources/github_logo.png" alt="Github logo">
+            <img id="mobile-github-logo-white" class="mobile header_imgs white white_header github-logo" src="./p1/resources/github_logo_white.png" alt="Github logo white">
+            <!--              <img id="github-logo-p2red" class="footer_buttons github-logo" src="index_resources/github_logo_p2red.png" alt="Github logo red" >-->
+          </a>
         </header>
         <div id="home_page" class="pages">
           <img id="p2TeaserLanding" src=index_resources/p2TeaserBackground.png alt="p2 teaser landing">
         </div>
-<!--        <div id="bug_fix_blocker">-->
-<!--            <div id="bug_fix_samoth" class="title bug_fix">samoth.</div>-->
-<!--            <br>-->
-<!--            <div id="bug_fix_title" class="bug_fix">Currently investigating a site-breaking bug, please check back later.</div>-->
-<!--        </div>-->
-        <div id="loading_page">
-<!--            <div id="loading_progress_counter">0%.</div>-->
-            <div id="loading_samoth" class="title" style="display: none;">samoth.</div>
+        <div id="bug_fix_blocker" style="display: none">
+            <div id="bug_fix_samoth" class="title bug_fix">samoth.</div>
+            <br>
+            <div id="bug_fix_title" class="bug_fix">Currently investigating a site-breaking bug, please check back later.</div>
         </div>
+<!--        <div id="loading_page">-->
+<!--            <div id="loading_samoth" class="title" style="display: none;">samoth.</div>-->
+<!--        </div>-->
+
 <!--        <div id="home_page" class="pages">-->
 <!--            <img id="a_s-img" src="./resources/home_a&s.png" alt="Allure & Subdue Image">-->
 <!--            <img id="a_s-img-mobile" src="./resources/a&s_main.png" alt="Allure & Subdue Mobile Image">-->
@@ -89,37 +102,43 @@
         <div id="gallery_page" class="pages">
 <!--            <div id="gallery_date" class="samoth"></div>-->
             <div id="gallery_content">
-                <div id="left_gallery_column" class="gallery column">
+                <div id="left_gallery_column" class="gallery_column">
 <!--                    <div class="img_wrapper" style="z-index: 10">-->
-                        <img id="topleftgallery" class="gallery_img square grow" src="p1/resources/gallery/allureSubdue_img1.png" alt="gallery image 1">
+                        <img id="topleftgallery" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img1.png" alt="gallery image 1">
 <!--                    </div>-->
-                    <img id="midleftgallery" class="gallery_img short_rect grow" src="p1/resources/gallery/allureSubdue_img2.png" alt="gallery image 2">
-                    <img id="botleftgallery" class="gallery_img square grow" src="p1/resources/gallery/allureSubdue_img3.png" alt="gallery image 3">
+                    <img id="midleftgallery" class="gallery_img short_rect" src="p1/resources/gallery/allureSubdue_img2.png" alt="gallery image 2">
+                    <img id="botleftgallery" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img3.png" alt="gallery image 3">
                 </div>
-                <div id="mid_gallery_column" class="gallery column middle_col">
-                    <img id="topmidgallery" class="gallery_img long_rect grow" src="p1/resources/gallery/allureSubdue_img4.png" alt="gallery image 4">
-                    <img id="botmidgallery" class="gallery_img long_rect grow" src="p1/resources/gallery/allureSubdue_img5.png" alt="gallery image 5">
+                <div id="mid_gallery_column" class="gallery_column middle_col">
+                    <img id="topmidgallery" class="gallery_img long_rect" src="p1/resources/gallery/allureSubdue_img4.png" alt="gallery image 4">
+                    <img id="botmidgallery" class="gallery_img long_rect" src="p1/resources/gallery/allureSubdue_img5.png" alt="gallery image 5">
                 </div>
-                <div id="right_gallery_column" class="gallery column">
-                    <img id="toprightgallery" class="gallery_img square grow" src="p1/resources/gallery/allureSubdue_img6.png" alt="gallery image 6">
-                    <img id="midrightgallery" class="gallery_img short_rect grow" src="p1/resources/gallery/allureSubdue_img7.png" alt="gallery image 7">
-                    <img id="botrightgallery" class="gallery_img square grow" src="p1/resources/gallery/allureSubdue_img8.png" alt="gallery image 8">
+                <div id="right_gallery_column" class="gallery_column">
+                    <img id="toprightgallery" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img6.png" alt="gallery image 6">
+                    <img id="midrightgallery" class="gallery_img short_rect" src="p1/resources/gallery/allureSubdue_img7.png" alt="gallery image 7">
+                    <img id="botrightgallery" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img8.png" alt="gallery image 8">
                 </div>
             </div>
             <div id="gallery_focus" style="opacity: 0;"></div>
         </div>
-        <footer style="z-index: 10">
+        <footer id="footer">
 <!--            site actively in development. check back later for new features.-->
             <a href="https://instagram.com/sam0th_" target="_blank">
-<!--                <img id="ig-logo-black" class="footer_buttons black_footer ig-logo" src="./p1/resources/ig_logo.png" alt="Instagram logo">-->
-                <img id="ig-logo-white" class="footer_buttons white_footer ig-logo" src="./p1/resources/ig_logo_white.png" alt="Instagram logo white">
+                <img id="ig-logo-black" class="footer_imgs black black_footer ig-logo" src="./p1/resources/ig_logo.png" alt="Instagram logo">
+                <img id="ig-logo-white" class="footer_imgs white white_footer ig-logo" src="./p1/resources/ig_logo_white.png" alt="Instagram logo white">
 <!--              <img id="ig-logo-p2red" class="footer_buttons ig-logo" src="index_resources/ig_logo_p2redv2.png" alt="Instagram logo red">-->
             </a>
             <a href="https://github.com/ths22115/samoth" target="_blank">
-<!--                <img id="github-logo-black" class="footer_buttons black_footer github-logo"  src="./p1/resources/github_logo.png" alt="Github logo">-->
-                <img id="github-logo-white" class="footer_buttons white_footer github-logo" src="./p1/resources/github_logo_white.png" alt="Github logo white">
+                <img id="github-logo-black" class="footer_imgs black black_footer github-logo"  src="./p1/resources/github_logo.png" alt="Github logo">
+                <img id="github-logo-white" class="footer_imgs white white_footer github-logo" src="./p1/resources/github_logo_white.png" alt="Github logo white">
 <!--              <img id="github-logo-p2red" class="footer_buttons github-logo" src="index_resources/github_logo_p2red.png" alt="Github logo red" >-->
             </a>
+        </footer>
+        <footer id="mobile_footer">
+            <button  id="mobile_home_button" class="mobile footer_buttons navbar_buttons home" value="home">home.</button>
+            <button id="mobile_about_button" class="mobile footer_buttons navbar_buttons about" value="about">about.</button>
+            <button  id="mobile_projects_button" class="mobile footer_buttons navbar_buttons projects" value="projects">projects.</button>
+            <button id="mobile_gallery_button" class="mobile footer_buttons navbar_buttons gallery" value="gallery">gallery.</button>
         </footer>
     </body>
 </html>
