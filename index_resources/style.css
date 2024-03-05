@@ -93,13 +93,14 @@ header {
 .active_page_button {
     color: #980000;
     opacity: 100%;
+    scale: 1.08;
 }
 
 .gallery_focus {
     color: #eaeaea;
     opacity: 100%;
-    text-shadow: white 0 0 2px;
 }
+.gallery_focus.active_page_button { text-shadow: #da0000 0 0 3px; }
 
 .teaser_text {
     color: #eaeaea;
@@ -326,7 +327,7 @@ header {
 
 #gallery_content { /*still needs tweaking + mobile responsiveness*/
     display: flex;
-    margin: 55px 0 49px 0;
+    margin: 55px 0;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
@@ -391,6 +392,9 @@ footer {
 
 #mobile_footer {
     display: none;
+}
+#mobile_footer:not(.header-footer_gallery_focus) {
+    background-color: #eaeaea;
 }
 
 footer > a {
@@ -520,15 +524,6 @@ footer > a {
         display: flex;
         justify-content: space-evenly;
         padding: 0;
-        background-color: #eaeaea;
-    }
-    .footer_buttons {
-        /*color: black;*/
-    }
-    .active_page_button {
-        color: #980000;
-        opacity: 100%;
-        scale: 1.14;
     }
 
     #p2TeaserLanding {
