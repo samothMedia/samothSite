@@ -25,6 +25,10 @@ window.onload = (event) => {
             galleryUnfocus(img);
           }
         });
+
+        img.addEventListener("click", function () {
+            gallery_spotlightLayering(img);
+        })
     })
 
     navbar_items.forEach(function(navbar_item) {
@@ -213,7 +217,7 @@ function galleryUnfocus(img) {
         complete: function () {
             $(white_footer_header).css("display", "none");
             $(black_footer_header).css("display", "flex");
-            $(white_footer_header).css("opacity", "40");
+            $(white_footer_header).css("opacity", "40%");
         }
     });
 
@@ -228,33 +232,42 @@ function galleryUnfocus(img) {
 
 function disableScroll() {
     // Get the current page scroll position
-    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const viewport = window.visualViewport;
+    scrollTop = window.pageYOffset || document.querySelector("#gallery_content").scrollTop;
+    scrollLeft = window.pageXOffset || document.querySelector("#gallery_content").scrollLeft;
 
         // if any scroll is attempted,
         // set this to the previous value
-        window.onscroll = function () {
-            window.scrollTo(scrollLeft, scrollTop);
-        };
+    document.querySelector("#gallery_content").onscroll = function () {
+        console.log("scroll attempt")
+        window.scrollTo(scrollLeft, scrollTop);
+    };
 }
 
 function enableScroll() {
     window.onscroll = function () { };
 }
 
-function gallery_spotlightLayering(target_img, header, mask) {
-    disableScroll();
+function gallery_spotlightLayering(target_img) {
+    // disableScroll();
+    $(document.querySelector("#gallery_content")).addClass("gallerySpotlightEnabled");
 
-    target_img.style.zIndex = 100;
+    isSpotlight = true;
 
-    var headerHeight = parseInt(window.getComputedStyle(header).getPropertyValue("height"))
-    var spotlightMargin = headerHeight  * 1.5
-    console.log(spotlightMargin)
+    //header/footer layering
+    // $(headers).addClass("header-footer_gallery_focus");
+    $(headers).removeClass("header-footer_gallery_focus");
+    $(footers).removeClass("header-footer_gallery_focus");
+    // $(navbar_items).removeClass("gallery_focus");
+    // $(header_titles).addClass("gallery_focus");
+    $(target_img).addClass("isFocus");
+
+    var headerHeight = parseInt(window.getComputedStyle(headers[0]).getPropertyValue("height"))
 
     var windowHeight = parseInt(window.getComputedStyle(document.querySelector("#gallery_page")).getPropertyValue('height'));
     console.log(windowHeight)
 
-    var newHeight = windowHeight - spotlightMargin * 2;
+    var newHeight = windowHeight - headerHeight * 1.5;
     var currentHeight = parseInt(window.getComputedStyle(target_img).getPropertyValue('height'))
 
     var targetScale = Math.round(newHeight / currentHeight * 100)
@@ -270,8 +283,8 @@ function gallery_spotlightLayering(target_img, header, mask) {
         scale: targetScale.toString() + '%',
         // top: '50%',
         // left: '50%',
-        translateX: '-50%',
-        translateY: '-50%',
+        // translateX: '-50%',
+        // translateY: '-50%',
         duration: 400,
         easing:'easeInCubic',
     });
