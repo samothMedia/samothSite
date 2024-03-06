@@ -1,16 +1,23 @@
 const pages = document.querySelectorAll("div.pages");
 const gallery_imgs = document.querySelectorAll("img.gallery_img");
-var mask = document.querySelector("#gallery_focus");
+var mask = document.querySelector("#gallery_mask");
 var navbar_items = document.querySelectorAll(".navbar_buttons")
 var header_titles = document.querySelectorAll(".header_title")
 var black_footer_header = document.querySelectorAll(".black")
 var white_footer_header = document.querySelectorAll(".white")
 var headers = document.querySelectorAll("#header, #mobile_footer");
 var footers = document.querySelectorAll("#footer, #mobile_header");
+var spotlightLayer = document.querySelector("#gallery_spotlight");
+var spotlightImg = document.querySelector("#gallery_spotlight_img");
+var isMobile = false;
 var isSpotlight = false;
 
 window.onload = (event) => {
     // loading_anime();
+    console.log("window viewport width/height: " + window.visualViewport.width + "/" + window.visualViewport.height)
+    if (window.visualViewport.width < window.visualViewport.height) {
+        isMobile = true;
+    }
 
     gallery_imgs.forEach(function(img) {
         // console.log(img);
@@ -250,50 +257,132 @@ function enableScroll() {
 
 function gallery_spotlightLayering(target_img) {
     // disableScroll();
-    $(document.querySelector("#gallery_content")).addClass("gallerySpotlightEnabled");
+    $(document.querySelector("#gallery_content")).addClass("galleryContent-SpotlightEnabled");
+    // var spotlightEsc = document.querySelector("#gallery_spotlight_esc");
 
     isSpotlight = true;
 
-    //header/footer layering
-    // $(headers).addClass("header-footer_gallery_focus");
+    //clear out galleryFocus layerings
     $(headers).removeClass("header-footer_gallery_focus");
     $(footers).removeClass("header-footer_gallery_focus");
-    // $(navbar_items).removeClass("gallery_focus");
-    // $(header_titles).addClass("gallery_focus");
-    $(target_img).addClass("isFocus");
+    $(navbar_items).removeClass("gallery_focus");
+    $(header_titles).removeClass("gallery_focus");
+    $(target_img).removeClass("isFocus");
+    $(gallery_imgs).removeClass("notFocus");
 
-    var headerHeight = parseInt(window.getComputedStyle(headers[0]).getPropertyValue("height"))
+    //spotlight img assigned to clicked img
+    spotlightImg.src = target_img.src;
 
-    var windowHeight = parseInt(window.getComputedStyle(document.querySelector("#gallery_page")).getPropertyValue('height'));
-    console.log(windowHeight)
+    var targetScale;
+    if (!isMobile) {
+        var headerHeight = parseInt(window.getComputedStyle(headers[0]).getPropertyValue("height"))
+        var newHeight = window.visualViewport.height - headerHeight;
+        var currentHeight = parseInt(window.getComputedStyle(spotlightImg).getPropertyValue('height'))
+        targetScale = newHeight / currentHeight
+        // console.log("target height:" + newHeight)
+        // console.log("current height:" + currentHeight)
+        // console.log("target scale:" + targetScale)
 
-    var newHeight = windowHeight - headerHeight * 1.5;
-    var currentHeight = parseInt(window.getComputedStyle(target_img).getPropertyValue('height'))
+    } else {
+        var newWidth = window.visualViewport.width - 40;
+        var currentWidth = parseInt(window.getComputedStyle(spotlightImg).getPropertyValue('width'))
+        targetScale = newWidth / currentWidth;
 
-    var targetScale = Math.round(newHeight / currentHeight * 100)
-    console.log(parseInt(window.getComputedStyle(target_img).getPropertyValue('height')))
-    console.log(targetScale)
+        // $(spotlightEsc).addClass("gallery_spotlight_esc-isMobile");
+    }
+    $(spotlightImg).css('scale', targetScale);
 
-    // target_img.style.position = 'absolute';
+    $(mask).addClass("galleryMask-SpotlightEnabled");
 
-    //calculate translateX & Y values that will center target_img based on current X & Y instead of moving img
-
-    anime({
-        targets: target_img,
-        scale: targetScale.toString() + '%',
-        // top: '50%',
-        // left: '50%',
-        // translateX: '-50%',
-        // translateY: '-50%',
-        duration: 400,
-        easing:'easeInCubic',
+    var spotlightAnime = anime.timeline({
+        duration: 0
     });
-
-    anime({
+    spotlightAnime.add({ //spotlight layer anime
+        targets: spotlightLayer,
+        opacity: [0, 1],
+        easing:'easeInCubic',
+        duration: 400,
+    }, 0).add({ //mask anime
         targets: mask,
         opacity: .96,
-        duration: 400,
         easing:'linear',
-    });
+        duration: 200,
+    },  0)
+
+    // const escFunc = (e) => {
+    //     if (e.code === "Escape" || e.code === "Esc") {
+    //         console.log("esc pressed")
+    //         // galleryUnspotlight(target_img);
+    //         document.body.removeEventListener('keydown', escFunc(e));
+    //     }
+    // }
+    //
+    //
+    // document.body.addEventListener('keydown', escFunc(e) {
+    // });
+    //
+    // spotlightImg.addEventListener('click', function() {
+    //     console.log("img clicked")
+    // });
+    //
+    // mask.addEventListener('click', function() {
+    //     console.log("layer clicked")
+    // });
 }
 
+// function galleryUnspotlight(target_img) {
+//     // disableScroll();
+//     $(document.querySelector("#gallery_content")).addClass("galleryContent-SpotlightEnabled");
+//     // var spotlightEsc = document.querySelector("#gallery_spotlight_esc");
+//
+//     isSpotlight = true;
+//
+//     //clear out galleryFocus layerings
+//     $(headers).removeClass("header-footer_gallery_focus");
+//     $(footers).removeClass("header-footer_gallery_focus");
+//     $(navbar_items).removeClass("gallery_focus");
+//     $(header_titles).removeClass("gallery_focus");
+//     $(target_img).removeClass("isFocus");
+//     $(gallery_imgs).removeClass("notFocus");
+//
+//     //spotlight img assigned to clicked img
+//     spotlightImg.src = target_img.src;
+//
+//     var targetScale;
+//     if (!isMobile) {
+//         var headerHeight = parseInt(window.getComputedStyle(headers[0]).getPropertyValue("height"))
+//         var newHeight = window.visualViewport.height - headerHeight;
+//         var currentHeight = parseInt(window.getComputedStyle(spotlightImg).getPropertyValue('height'))
+//         targetScale = newHeight / currentHeight
+//         // console.log("target height:" + newHeight)
+//         // console.log("current height:" + currentHeight)
+//         // console.log("target scale:" + targetScale)
+//
+//     } else {
+//         var newWidth = window.visualViewport.width - 40;
+//         var currentWidth = parseInt(window.getComputedStyle(spotlightImg).getPropertyValue('width'))
+//         targetScale = newWidth / currentWidth;
+//
+//         // $(spotlightEsc).addClass("gallery_spotlight_esc-isMobile");
+//     }
+//     $(spotlightImg).css('scale', targetScale);
+//
+//     $(mask).addClass("galleryMask-SpotlightEnabled");
+//
+//     var spotlightAnime = anime.timeline({
+//         duration: 0
+//     });
+//     spotlightAnime.add({ //spotlight layer anime
+//         targets: spotlightLayer,
+//         opacity: [0, 1],
+//         easing:'easeInCubic',
+//         duration: 400,
+//     }, 0).add({ //mask anime
+//         targets: mask,
+//         opacity: .96,
+//         easing:'linear',
+//         duration: 200,
+//     },  0)
+//
+//
+// }
