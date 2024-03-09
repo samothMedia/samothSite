@@ -465,12 +465,12 @@ footer > a {
 
 .footer_imgs:hover, .header_imgs:hover {
     scale: 1.2;
-
-    .white_footer, .white_header {
-        opacity: 80%;
-    }
 }
-/*reverse animation?????*/
+
+.white_footer:hover, .white_header:hover {
+    opacity: 80%;
+}
+
 
 @media (max-width: 1440px) {
     #p2TeaserLanding {

@@ -21,13 +21,13 @@ window.onload = (event) => {
     gallery_imgs.forEach(function(img) {
         // console.log(img);
         img.addEventListener("mouseenter", function() {
-          if (!isSpotlight) {
+          if (!isSpotlight && !isMobile) {
             galleryFocus(img);
           }
         });
 
         img.addEventListener("mouseleave", function() {
-          if (!isSpotlight) {
+          if (!isSpotlight && !isMobile) {
             galleryUnfocus(img);
           }
         });
