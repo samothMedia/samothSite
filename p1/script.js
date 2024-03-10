@@ -12,8 +12,8 @@ var spotlightImg = document.querySelector("#gallery_spotlight_img");
 var isMobile = false;
 var isSpotlight = false;
 
-window.onload = (event) => {
-    // loading_anime();
+window.onload = () => {
+    loading_anime();
     if (window.visualViewport.width < window.visualViewport.height) {
         isMobile = true;
     }
@@ -45,7 +45,7 @@ window.onload = (event) => {
         });
     })
 
-    const starting_page = "gallery";
+    const starting_page = "home";
 
     for (let i = 0; i < pages.length; i++) {
         if (pages[i].id === starting_page + "_page") {
