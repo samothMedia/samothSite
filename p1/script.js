@@ -223,7 +223,7 @@ function galleryUnfocus(img) {
         complete: function () {
             $(white_footer_header).css("display", "none");
             $(black_footer_header).css("display", "flex");
-            $(white_footer_header).css("opacity", "40%");
+            $(white_footer_header).css("opacity", "");
         }
     });
 
