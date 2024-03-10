@@ -41,7 +41,7 @@ window.onload = () => {
         // console.log(header_item)
         navbar_item.addEventListener("click", function() {
             pageSwap(this);
-            page_anime(navbar_item.id);
+            page_anime(navbar_item.value);
         });
     })
 
@@ -113,8 +113,8 @@ function changeActivePage(target_page, current_page) {
 
 }
 
-function page_anime(page_header_id) {
-    if (!(page_header_id === "home_button" || page_header_id === "mobile_home_button")) {
+function page_anime(navbar_button_value) {
+    if (!(navbar_button_value === "home")) {
         $(white_footer_header).css("display", "none")
         $(black_footer_header).css("display", "flex")
         $(document.querySelector("#mobile_header_samoth")).removeClass("teaser_text")
@@ -126,7 +126,7 @@ function page_anime(page_header_id) {
         // $(document.querySelector("#mobile_header")).css("opacity", "40%")
     }
 
-    if (page_header_id === "gallery_button") {
+    if (navbar_button_value === "gallery") {
         anime({
             targets: gallery_imgs,
             opacity: ["0%", "100%"],
