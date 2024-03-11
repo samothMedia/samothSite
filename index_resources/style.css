@@ -222,12 +222,12 @@ header {
     overflow: auto;
     max-height: 100%;
     width: 100%;
-    margin: 55px 0;
+    margin: 60px 0;
     padding: 0 20px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
     text-align: center;
 }
 
