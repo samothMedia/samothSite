@@ -13,7 +13,7 @@ var isMobile = false;
 var isSpotlight = false;
 
 window.onload = () => {
-    loading_anime();
+    // loading_anime();
     if (window.visualViewport.width < window.visualViewport.height) {
         isMobile = true;
     }
