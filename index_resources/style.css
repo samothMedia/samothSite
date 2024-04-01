@@ -188,14 +188,15 @@ header {
 }
 #p2HomePreReleaseBackground {
     width: 110vw;
-    /*height: 110vh;*/
-    /*position: absolute;*/
-    /*right: 0;*/
-    /*top: 8px;*/
-    /*height: 213.3vw;*/
-    margin: 10px 9.8vw 0 0;
+    margin: -3px 9.8vw 0 0;
 
 }
+#p2HomePostReleaseBackground {
+    width: 102.5vw;
+    margin: 28px 7px 0 0;
+    transform: rotate(-.4deg);
+}
+
 #p2HomeTitleImg {
     width: auto;
     height: auto;
@@ -211,6 +212,33 @@ header {
     align-items: center;
     justify-content: center;
 }
+
+#display_img_container {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20px);
+    grid-template-rows: repeat(auto-fill, 20px);
+}
+
+.FAKE_p2_display_imgs {
+    display: none;
+    width: 150px;
+    height: 150px;
+}
+
+#display_img_1 {
+    display: block;
+    width: 700px;
+    height: auto;
+}
+
+#p2gallery {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
 #display_section_preRel_title {
     padding-bottom: 55px;
 }
@@ -484,7 +512,7 @@ footer > a {
 
 
 @media (max-width: 1440px) {
-    #p2HomePreReleaseBackground {
+    #p2HomePostReleaseBackground {
         width: auto;
         height: 113vh;
     }
@@ -504,7 +532,7 @@ footer > a {
 }
 
 @media (max-width: 990px) {
-    #p2HomePreReleaseBackground {
+    #p2HomePostReleaseBackground {
         margin-right: 65vh;
     }
 
@@ -540,7 +568,7 @@ footer > a {
 }
 
 @media (max-width: 765px) {
-    #p2HomePreReleaseBackground {
+    #p2HomePostReleaseBackground {
         margin-top: -4vh;
     }
 
