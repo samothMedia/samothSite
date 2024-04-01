@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>samoth.</title>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V1J03GWY4"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-5V1J03GWY4');
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+                integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://kit.fontawesome.com/3424007297.js" crossorigin="anonymous"></script>
+        <script src = "./resources/jquery-3.7.1.min.js"></script>
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <header style="z-index: 10">
+            <button id="about_button" class="header_buttons" onclick="sectionSwap('about_page')">about.</button>
+            <button  id="home_button" class="header_buttons" onclick="sectionSwap('home_page')">home.</button>
+            <button id="gallery_button" class="header_buttons" onclick="sectionSwap('gallery_page')">gallery.</button>
+        </header>
+<!--        <div id="bug_fix_blocker">-->
+<!--            <div id="bug_fix_samoth" class="title bug_fix">samoth.</div>-->
+<!--            <br>-->
+<!--            <div id="bug_fix_title" class="bug_fix">Currently investigating a site-breaking bug, please check back later.</div>-->
+<!--        </div>-->
+        <div id="loading_page">
+            <div id="loading_progress_counter">0%.</div>
+            <div id="loading_samoth" class="title" style="display: none;">samoth.</div>
+        </div>
+        <div id="home_page" class="pages">
+            <img id="a_s-img" src="./resources/home_a&s.png" alt="Allure & Subdue Image">
+            <img id="a_s-img-mobile" src="./resources/a&s_main.png" alt="Allure & Subdue Mobile Image">
+<!--            <svg id="home_slash" xmlns="http://www.w3.org/2000/svg" width="368" height="468" viewBox="0 0 368 468" fill="none">-->
+<!--                <path d="M141.023 0H367.391L229.362 467.067H0.547852L141.023 0Z" fill="#EAEAEA"/>-->
+<!--            </svg>-->
+            <div id="home_text">
+                <div id="home_allure" class="title home_title">allure.</div>
+                <div id="home_center_text">
+                    <div id="home_title" class="title home_title">out now.</div>
+                    <div id="home_subtitle">view in gallery.</div>
+                </div>
+                <div id="home_subdue" class="title home_title">subdue.</div>
+            </div>
+        </div>
+        <div id="about_page" class="pages">
+            <div id="about_samoth" class="title">samoth.</div>
+            <div id="about_text_sec">
+                <div class="about-text">
+                    is both a diverse, visual creative media portfolio and the collective of passionate
+                    creatives—fashion stylists, models, photographers, videographers, makeup artists, front-end
+                    developers, etc—whom exercise their niches in an organized, collaborative environment to produce and
+                    manage said portfolio.
+                </div>
+                <div class="about-text">
+                    the ability to freely express our art, garner hands-on professional experience in media production,
+                    amplify each other’s shared passions, rally more and more creatives to our cause, and inspire others
+                    to embrace their artistic natures is our profit, nothing more.
+                </div>
+                <div class="about-text">
+                    what was originally drafted as a small creative fashion portfolio has quickly developed into
+                    something so much more, and we’re just getting started.
+                </div>
+                <div class="about-text">
+                    so, you in?
+                </div>
+                <div class="about-text">
+                    contact @sam0th_ on ig for inquiries.
+                </div>
+            </div>
+        </div>
+        <div id="gallery_page" class="pages">
+<!--            <div id="gallery_date" class="samoth"></div>-->
+            <div id="gallery_content">
+                <div id="left_gallery_column" class="gallery column">
+<!--                    <div class="img_wrapper" style="z-index: 10">-->
+                        <img id="topleftgallery" class="gallery_img square grow" src="./resources/gallery/A&S/allureSubdue_img1.png" alt="gallery image 1">
+<!--                    </div>-->
+                    <img id="midleftgallery" class="gallery_img short_rect grow" src="./resources/gallery/A&S/allureSubdue_img2.png" alt="gallery image 2">
+                    <img id="botleftgallery" class="gallery_img square grow" src="./resources/gallery/A&S/allureSubdue_img3.png" alt="gallery image 3">
+                </div>
+                <div id="mid_gallery_column" class="gallery column middle_col">
+                    <img id="topmidgallery" class="gallery_img long_rect grow" src="./resources/gallery/A&S/allureSubdue_img4.png" alt="gallery image 4">
+                    <img id="botmidgallery" class="gallery_img long_rect grow" src="./resources/gallery/A&S/allureSubdue_img5.png" alt="gallery image 5">
+                </div>
+                <div id="right_gallery_column" class="gallery column">
+                    <img id="toprightgallery" class="gallery_img square grow" src="./resources/gallery/A&S/allureSubdue_img6.png" alt="gallery image 6">
+                    <img id="midrightgallery" class="gallery_img short_rect grow" src="./resources/gallery/A&S/allureSubdue_img7.png" alt="gallery image 7">
+                    <img id="botrightgallery" class="gallery_img square grow" src="./resources/gallery/A&S/allureSubdue_img8.png" alt="gallery image 8">
+                </div>
+<!--                <div id="gallery_as_header" class="samoth gallery_header">samoth.</div>-->
+<!--                <img class="gallery square" src="./resources/img5_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery long_rect" src="./resources/img2_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery square" src="./resources/img3_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery short_rect" src="./resources/img8_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery long_rect" src="./resources/img7_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery short_rect" src="./resources/img1_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery square" src="./resources/img6_gal.png" alt="gallery image 1">-->
+<!--                <img class="gallery square" src="./resources/img4_gal.png" alt="gallery image 1">-->
+            </div>
+            <div id="gallery_focus" style="opacity: 0; z-index: -10;"></div>
+        </div>
+        <footer style="z-index: 10">
+<!--            site actively in development. check back later for new features.-->
+            <a href="https://instagram.com/sam0th_" target="_blank">
+                <img id="ig-logo-black" class="footer_buttons black_footer ig-logo" src="./resources/ig_logo.png" alt="Instagram logo">
+                <img id="ig-logo-white" class="footer_buttons white_footer ig-logo" src="./resources/ig_logo_white.png" alt="Instagram logo white" style="display: none">
+            </a>
+            <a href="" target="_blank">
+                <img id="MT-logo-black" class="footer_buttons black_footer mt-logo" src="./resources/MT_temp_logo.png" alt="MT logo">
+                <img id="MT-logo-white" class="footer_buttons white_footer mt-logo" src="./resources/MT_temp_logo_white.png" alt="MT logo white" style="display: none">
+            </a>
+            <a href="https://github.com/ths22115/samoth" target="_blank">
+                <img id="github-logo-black" class="footer_buttons black_footer github-logo"  src="./resources/github_logo.png" alt="Github logo">
+                <img id="github-logo-white" class="footer_buttons white_footer github-logo" src="./resources/github_logo_white.png" alt="Github logo white" style="display: none">
+            </a>
+        </footer>
+    </body>
+</html>
