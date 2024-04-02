@@ -6,19 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>samoth.</title>
         <link rel="icon" type="image/x-icon" href="./index_resources/samothFavicon.png">
+        <script src="p1/resources/jquery-3.7.1.min.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V1J03GWY4"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-5V1J03GWY4');
-        </script>
+        <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date()); gtag('config', 'G-5V1J03GWY4');</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
                 integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://kit.fontawesome.com/3424007297.js" crossorigin="anonymous"></script>
-        <script src = "p1/resources/jquery-3.7.1.min.js"></script>
         <script defer src="p1/script.js"></script>
     </head>
     <body>
@@ -45,20 +40,42 @@
           </a>
         </header>
         <div id="home_page" class="pages">
-          <img id="p2TeaserLanding" src=index_resources/p2TeaserBackground.png alt="p2 teaser landing">
+          <div id="home_content" class="scrolling_page_content">
+<!--          <div>-->
+          <div id="landing_section" class="scrolling_page_section">
+            <img id="p2HomePostReleaseBackground" src=index_resources/p2PostReleaseLandingTemp.png alt="p2 post release landing img">
+            <img id="p2HomeTitleImg" src="index_resources/p2PostReleaseHomeTitle.png">
+          </div>
+          <div id="display_section" class="scrolling_page_section">
+            <div id="display_img_container">
+              <img id="display_img_1" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 1">
+              <img id="display_img_2" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 2">
+              <img id="display_img_3" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 3">
+              <img id="display_img_4" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 4">
+              <img id="display_img_5" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 5">
+              <img id="display_img_6" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 6">
+              <img id="display_img_7" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 7">
+              <img id="display_img_8" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 8">
+              <img id="display_img_9" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 9">
+              <img id="display_img_10" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 10">
+              <img id="display_img_11" class="FAKE_p2_display_imgs" src=index_resources/p2TeaserBackground.png alt="p2 post release display img 11">
+            </div>
+<!--            <div id="display_section_preRel_title" class="title">## D.</div>-->
+          </div>
+          </div>
         </div>
         <div id="bug_fix_blocker" style="display: none">
             <div id="bug_fix_samoth" class="title bug_fix">samoth.</div>
             <br>
             <div id="bug_fix_title" class="bug_fix">Currently investigating a site-breaking bug, please check back later.</div>
         </div>
-        <div id="loading_page">
-            <div id="loading_samoth" class="title" style="display: none;">samoth.</div>
-        </div>
+<!--        <div id="loading_page">-->
+<!--            <div id="loading_samoth" class="title" style="display: none;">samoth.</div>-->
+<!--        </div>-->
         <div id="about_page" class="pages">
-            <div id="about_content">
-              <div class="title about_title">about us.</div>
-              <div class="about_text_containers">
+            <div id="about_content" class="scrolling_page_content">
+              <div id="about_text_container" class="scrolling_page_section">
+                <div class="title about_title">about us.</div>
                 <div class="about-text">
                   <a>samoth.</a> is both a diverse, visual creative media portfolio and the collective of passionate
                   creatives—fashion stylists, models, photographers, videographers, makeup artists, front-end
@@ -74,15 +91,12 @@
                   what was originally drafted as a small creative fashion portfolio has quickly developed into
                   something so much more, and we’re just getting started.
                 </div>
-              </div>
-<!--              <div class="title about_title">the who.</div>-->
-              <div class="about_text_containers">
-<!--                <div class="about-text">-->
-<!--                  coming soon.-->
-<!--                </div>-->
                 <div class="about-text">
                   contact @sam0th_ on ig for inquiries.
                 </div>
+              </div>
+              <div id="member_section" class="scrolling_page_section">
+                <div id="member_section_preRel_title" class="title">## D.</div>
               </div>
             </div>
         </div>

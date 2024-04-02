@@ -47,6 +47,10 @@ header {
     display: none;
 }
 
+#mobile_header_samoth {
+    font-weight: 450;
+}
+
 .header-footer_gallery_focus {
     z-index: 100;
     background-color: transparent;
@@ -68,7 +72,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 65px;
-    padding: 30px;
+    padding: 0 30px;
 }
 
 .navbar_buttons {
@@ -149,21 +153,98 @@ header {
     color: black;
 }
 
-#home_page{
+
+/* HOME PAGE: */
+.pages {
     display: flex;
     width: 100vw;
     height: 100%;
-    /*padding: 181px 186px 143px 186px;*/
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#home_page {
+}
+
+.scrolling_page_content {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: calc(100vh - 55px);
+    position: absolute;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    margin-top: 55px;
+}
+#home_content {
+    overflow-x: clip;
+}
+
+#landing_section{
+    display: flex;
+    width: 100vw;
+    min-height: calc(100vh - 55px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: clip;
+
+}
+#p2HomePreReleaseBackground {
+    width: 110vw;
+    margin: -3px 9.8vw 0 0;
+
+}
+#p2HomePostReleaseBackground {
+    width: 102.5vw;
+    margin: 28px 7px 0 0;
+    /*transform: rotate(-.4deg);*/
+}
+
+#p2HomeTitleImg {
+    width: auto;
+    height: auto;
+    z-index: 20;
+    position: absolute;
+}
+
+#display_section {
+    display: flex;
+    width: 100vw;
+    min-height: calc(100vh - 55px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#p2TeaserLanding {
-    position: absolute;
-    top: 45px;
-    width: 110vw;
-    /*height: 213.3vw;*/
+#display_img_container {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20px);
+    grid-template-rows: repeat(auto-fill, 20px);
+}
+
+.FAKE_p2_display_imgs {
+    display: none;
+    width: 150px;
+    height: 150px;
+}
+
+#display_img_1 {
+    display: block;
+    width: 700px;
+    height: auto;
+}
+
+#p2gallery {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+#display_section_preRel_title {
+    padding-bottom: 55px;
 }
 
 .title {
@@ -175,16 +256,6 @@ header {
 
 .home_title {
     font-size: 45px;
-}
-
-#home_center_text{
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    padding-left: 10px;
 }
 
 #home_subtitle {
@@ -207,25 +278,19 @@ header {
     color: #EAEAEA;
 }
 
+/* ABOUT PAGE: */
+
 #about_page {
-    display: flex;
-    width: 100vw;
-    height: 100%;
-    /*padding: 181px 186px 143px 186px;*/
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /*display: flex;*/
+    /*width: 100vw;*/
+    /*height: 100%;*/
+    /*!*padding: 181px 186px 143px 186px;*!*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    /*justify-content: flex-start;*/
 }
 
 #about_content {
-    display: flex;
-    overflow: auto;
-    max-height: 100%;
-    width: 100%;
-    margin: 60px 0;
-    padding: 0 20px;
-    flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     gap: 20px;
     text-align: center;
@@ -235,17 +300,21 @@ header {
     color: #000000;
 }
 
-.about_text_containers{
+#about_text_container{
     display: flex;
-    gap: 20px;
+    max-width: 1140px;
+    min-height: calc(100vh - 55px);
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: #000000;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    max-width: 1140px;
+    gap: 20px;
+    padding: 0 20px;
 }
 .about-text > a {
     font-weight: bold;
@@ -253,14 +322,18 @@ header {
     font-size: 1.2em;
 }
 
+#member_section {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 55px);
+    background-color: #1B1B1B;
+    /*padding: 0 -20px;*/
+}
 
-/*projects page*/
+
+/* PROJECTS PAGE: */
 
 #projects_page {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -270,22 +343,10 @@ header {
 }
 
 
-/*gallery page:*/
-
-/*.gallery {*/
-/*    color: #000000;*/
-/*    font-size: 75px;*/
-/*}*/
+/* GALLERY PAGE: :*/
 
 #gallery_page {
-    display: flex;
-    width: 100vw;
-    height: 100%;
-    /*padding: 181px 186px 143px 186px;*/
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    flex-shrink: 0;
 }
 
 #gallery_mask {
@@ -445,10 +506,9 @@ footer > a {
 
 
 @media (max-width: 1440px) {
-    #p2TeaserLanding {
+    #p2HomePostReleaseBackground {
         width: auto;
-        height: 100.3vh;
-        left: 0;
+        height: 113vh;
     }
 }
 
@@ -466,6 +526,10 @@ footer > a {
 }
 
 @media (max-width: 990px) {
+    #p2HomePostReleaseBackground {
+        margin-right: 65vh;
+    }
+
     #about_text_sec {
         max-width: 680px;
         font-size: 19px;
@@ -489,18 +553,18 @@ footer > a {
     .navbar_buttons {
         font-size: 20px;
     }
+
+    #p2HomeTitleImg {
+       width: inherit;
+        height: auto;
+        padding: 0 20px;
+    }
 }
 
 @media (max-width: 765px) {
-    /*header > button {*/
-    /*    font-size: 20px;*/
-    /*    width: 33%;*/
-    /*}*/
-
-    /*footer > a {*/
-    /*    !*font-size: 20px;*!*/
-    /*    width: 33%;*/
-    /*}*/
+    #p2HomePostReleaseBackground {
+        margin-top: -4vh;
+    }
 
     #about_text_sec {
         max-width: 450px;
@@ -575,14 +639,10 @@ footer > a {
     .bug_fix {
         max-width: 250px;
     }
-
-    #p2TeaserLanding {
-        left: -30px;
-    }
 }
 @media (max-width: 475px) {
-    #p2TeaserLanding {
-        left: -107px;
+    #p2HomePreReleaseBackground {
+        margin-right: 90vh;
     }
 }
 @media (max-width: 375px) {

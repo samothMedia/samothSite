@@ -13,10 +13,35 @@ var isMobile = false;
 var isSpotlight = false;
 
 window.onload = () => {
-    loading_anime();
+    // loading_anime();
     if (window.visualViewport.width < window.visualViewport.height) {
         isMobile = true;
     }
+
+    const gridComputedStyle = window.getComputedStyle(document.getElementById("display_img_container"));
+
+// get number of grid rows
+    const gridRowCount = gridComputedStyle.getPropertyValue("grid-template-rows").split(" ").length;
+
+// get number of grid columns
+    const gridColumnCount = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
+
+    console.log(gridRowCount, gridColumnCount);
+
+    var style = document.createElement('style');
+
+    img1ComuptedStyle = window.getComputedStyle(document.getElementById("display_img_1"))
+    img1Width = parseInt(img1ComuptedStyle.getPropertyValue("width").split("px")[0])
+
+    var img1Position = Math.round(gridColumnCount/2) - Math.floor((img1Width/2)/20);
+    if (img1Position < 0) {
+        img1Position = 1
+    }
+
+    $(style).append('.cssClass { grid-column: ' + img1Position.toString() + '; }')
+    document.querySelector('head').appendChild(style);
+
+    $(document.getElementById("display_img_1")).addClass("cssClass");
 
     gallery_imgs.forEach(function(img) {
         // console.log(img);
