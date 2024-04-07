@@ -9,8 +9,11 @@ var headers = document.querySelectorAll("#header, #mobile_footer");
 var footers = document.querySelectorAll("#footer, #mobile_header");
 var spotlightLayer = document.querySelector("#gallery_spotlight");
 var spotlightImg = document.querySelector("#gallery_spotlight_img");
+var memberNames = document.querySelector("#member_name_div");
+
 var isMobile = false;
 var isSpotlight = false;
+
 
 window.onload = () => {
     // loading_anime();
@@ -42,7 +45,9 @@ window.onload = () => {
     document.querySelector('head').appendChild(style);
 
     $(document.getElementById("display_img_1")).addClass("cssClass");
-
+    
+    buildAboutMembers();
+    
     gallery_imgs.forEach(function(img) {
         // console.log(img);
         img.addEventListener("mouseenter", function() {
@@ -345,4 +350,64 @@ function galleryUnspotlight() {
 
     isSpotlight = false;
     $(document.querySelector("#gallery_content")).removeClass("galleryContent-SpotlightEnabled");
+}
+
+function buildAboutMembers() {
+    $.ajax({
+        type: "GET",
+        url: "../index_resources/members.json",
+        dataType: "json",
+        success: function(data, status){
+            console.log(data.images);
+
+            $.each(data.members, function () {
+                var name_div = '<div class="names">' + this.name + '.</div>'
+                $(memberNames).append(name_div);
+            })
+
+            var imgIndex = Math.floor(Math.random() * data.images.length);
+            var memberBaseImg = data.images[imgIndex]
+            
+            
+            // var page_img = "<img id='labs_img' src='" + data.pageImg + "' style='z-index: -2;' alt='page background image' >"
+            // $('body').append(page_img);
+            //
+            // $.each(data.labs, function () {
+            //     var lab_div = "<div ";
+            //
+            //     let lab_id = "lab" + this.labNum +"_button";
+            //     lab_div += "id='" + lab_id +"' "; //id
+            //     lab_div += "class='lab_buttons' "; //lab class
+            //     lab_div += "style='z-index: 2;' >";
+            //
+            //     var lab_img = "<img "
+            //     lab_img += "id='lab" + this.labNum +"_img' "; //img id
+            //     lab_img += "src='" + this.labImg + "' "; //img path
+            //     lab_img += "alt='lab " + this.labNum + "button image' >" //img alt
+            //
+            //     lab_div += lab_img + "</div>";
+            //
+            //     $('#labs_page').append(lab_div);
+            //
+            //     const lab_link = this.link;
+            //     $('#'+ lab_id).on("click", function(){
+            //         window.location.href = lab_link;
+            //     });
+            // })
+            //
+            // $(".lab_buttons").on("mouseover", function(){
+            //     lab_focus(this);
+            //     console.log(this.id + "hovered.");
+            // });
+            //
+            // $(".lab_buttons").on("mouseout", function(){
+            //     lab_unfocus(this);
+            //     console.log(this.id + "unhovered.");
+            // });
+
+        }, error: function(msg) {
+            // there was a problem
+            alert("There was a problem: " + msg.status + " " + msg.statusText);
+        }
+    });
 }
