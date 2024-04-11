@@ -187,19 +187,27 @@ header {
 
 }
 #p2HomePreReleaseBackground {
-    width: 110vw;
+    width: 100vw;
     /*height: 110vh;*/
     /*position: absolute;*/
     /*right: 0;*/
     /*top: 8px;*/
     /*height: 213.3vw;*/
-    margin: 10px 9.8vw 0 0;
-
+    margin: 200px 0 0 0;
+}
+#p2HomePreReleaseBackground2 {
+    width: 100vw;
+    /*height: 110vh;*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 8px;*/
+    /*height: 213.3vw;*/
+    margin: 50px 0 0 0;
 }
 #p2HomeTitleImg {
-    width: auto;
+    width: 62%;
     height: auto;
-    z-index: 20;
+    z-index: 5;
     position: absolute;
 }
 
@@ -488,9 +496,18 @@ footer > a {
         width: auto;
         height: 113vh;
     }
+    /*#p2HomePreReleaseBackground2 {*/
+    /*    width: auto;*/
+    /*    height: 113vh;*/
+    /*}*/
 }
 
 @media (max-width: 1199px) {
+    #p2HomePreReleaseBackground2 {
+        width: auto;
+        height: 113vh;
+    }
+
     #about_text_sec {
         max-width: 915px;
     }
@@ -506,6 +523,12 @@ footer > a {
 @media (max-width: 990px) {
     #p2HomePreReleaseBackground {
         margin-right: 65vh;
+    }
+
+    #p2HomeTitleImg {
+        width: inherit;
+        height: auto;
+        padding: 0 20px;
     }
 
     #about_text_sec {
@@ -531,15 +554,13 @@ footer > a {
     .navbar_buttons {
         font-size: 20px;
     }
-
-    #p2HomeTitleImg {
-       width: inherit;
-        height: auto;
-        padding: 0 20px;
-    }
 }
 
 @media (max-width: 765px) {
+    #p2TeaserLanding {
+        top: -10px;
+    }
+
     #p2HomePreReleaseBackground {
         margin-top: -4vh;
     }
@@ -574,10 +595,6 @@ footer > a {
         display: flex;
         justify-content: space-evenly;
         padding: 0;
-    }
-
-    #p2TeaserLanding {
-        top: -10px;
     }
 }
 @media (max-width: 576px) {
@@ -619,6 +636,10 @@ footer > a {
     }
 }
 @media (max-width: 475px) {
+    #p2TeaserLanding {
+        left: -12.5vh;
+    }
+
     #p2HomePreReleaseBackground {
         margin-right: 90vh;
     }
@@ -634,7 +655,5 @@ footer > a {
         font-size: 16px;
     }
 
-    #p2TeaserLanding {
-        left: -12.5vh;
-    }
+
 }

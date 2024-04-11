@@ -13,6 +13,8 @@ var isMobile = false;
 var isSpotlight = false;
 
 window.onload = () => {
+    preReleaseTimer();
+
     // loading_anime();
     if (window.visualViewport.width < window.visualViewport.height) {
         isMobile = true;
@@ -320,4 +322,45 @@ function galleryUnspotlight() {
 
     isSpotlight = false;
     $(document.querySelector("#gallery_content")).removeClass("galleryContent-SpotlightEnabled");
+}
+
+function preReleaseTimer() {
+    // set the date we're counting down to
+    var countDownDate = new Date("April 26, 2024 10:00:00").getTime();
+
+// Update the count down every 1 second
+    var timer = setInterval(function() {
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="display_section_preRel_timer"
+        if (days > 0) {
+            document.getElementById("display_section_preRel_timer").innerHTML = days + " DAYS.";
+        } else if (hours > 0) {
+            document.getElementById("display_section_preRel_timer").innerHTML = hours + " HOURS."
+                + minutes + " mins. " + seconds + " secs.";
+        } else if (minutes > 0) {
+            document.getElementById("display_section_preRel_timer").innerHTML = minutes + " MINUTES.";
+        } else if (seconds > 0) {
+            document.getElementById("display_section_preRel_timer").innerHTML = seconds + " SECONDS."
+        } else {
+            document.getElementById("display_section_preRel_timer").innerHTML = "OUT NOW :0"
+        }
+
+        // If the count down is finished, write some text
+        // if (distance < 0) {
+        //     clearInterval(timer);
+        //     document.getElementById("home_subtitle").innerHTML = "view on ig & in gallery.";
+        //     document.getElementById("gallery_date").style.display = "none";
+        // }
+    }, 1000);
 }
