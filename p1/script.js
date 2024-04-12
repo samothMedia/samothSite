@@ -18,12 +18,8 @@ window.onload = () => {
     loading_anime()
 
     preReleaseTimer();
-    windowResize();
 
-    // loading_anime();
-    if (window.visualViewport.width < window.visualViewport.height) {
-        isMobile = true;
-    }
+    windowResize();
 
     gallery_imgs.forEach(function(img) {
         // console.log(img);
@@ -373,8 +369,20 @@ function preReleaseTimer() {
 function windowResize() {
     var secondTimer = setInterval(function() {
         // var currentHeight = $(window).height();
+
+        if (window.visualViewport.width < window.visualViewport.height) {
+            isMobile = true;
+        }
         var currentHeight = window.visualViewport.height;
-        $(homeLandingSection).css("height", currentHeight + "px")
-        $(homeDisplaySection).css("height", currentHeight + "px")
+        $(homeLandingSection).css("height",(currentHeight-55) + "px")
+        $(homeDisplaySection).css("height",(currentHeight-55) + "px")
+
+        if (isMobile) {
+            $(homeLandingSection).css("margin", "0");
+            $(homeDisplaySection).css("margin", "0 0 55px 0");
+        } else {
+            $(homeLandingSection).css("margin", "55px 0 0 0");
+            $(homeDisplaySection).css("margin", "0");
+        }
     }, 1000);
 }
