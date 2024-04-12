@@ -1,0 +1,72 @@
+{
+  "images": [
+    {
+      "link": "index_resources/members/p2MembersBase1.png",
+      "desc": "p2 - IN-SESSION.<br>photography: miles fortuno.<br>lead: miles thomas.<br>models: mags martin, tiffany suporn, kayla villescas, raven levitt, fionna lam, miles thomas."
+    },
+    {
+      "link": "index_resources/members/p2MembersBase2.png",
+      "desc": "p1 - allure & subdue.<br>photography: malcolm thomas.<br>lead: miles thomas.<br>models: miles thomas, june hinkley."
+    }
+  ],
+  "members": [
+    {
+      "name": "miles thomas",
+      "id": "m001",
+      "tags": ["founder", "creative direction", "web-dev", "stylist", "model"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },
+    {
+      "name": "malcolm thomas",
+      "id": "m002",
+      "tags": ["photography"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },
+    {
+      "name": "june hinkley",
+      "id": "m003",
+      "tags": ["model"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },
+    {
+      "name": "raven levitt",
+      "id": "m004",
+      "tags": ["web-dev", "stylist", "model"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },
+    {
+      "name": "mags martin",
+      "id": "m005",
+      "tags": ["stylist", "model"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },
+    {
+      "name": "kapinga tshibangu",
+      "id": "m006",
+      "tags": ["stylist", "model"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },{
+      "name": "tiffany suporn",
+      "id": "m007",
+      "tags": ["stylist", "model"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },
+    {
+      "name": "fionna lam",
+      "id": "m008",
+      "tags": ["stylist", "model"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },
+    {
+      "name": "kayla villescas",
+      "id": "m009",
+      "tags": ["stylist", "model"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    },{
+      "name": "miles fortuno",
+      "id": "m010",
+      "tags": ["photography"],
+      "img": "index_resources/p2PostReleaseLandingTemp.png"
+    }
+  ]
+}

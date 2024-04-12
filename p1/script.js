@@ -9,8 +9,13 @@ var headers = document.querySelectorAll("#header, #mobile_footer");
 var footers = document.querySelectorAll("#footer, #mobile_header");
 var spotlightLayer = document.querySelector("#gallery_spotlight");
 var spotlightImg = document.querySelector("#gallery_spotlight_img");
-var memberNames = document.querySelector("#member_name_div");
+var memberNameDiv = document.querySelector("#member_name_div");
+var memberDetails = document.querySelector("#member_details_div")
+var memberNames;
+var memberTitle = document.querySelector("#member_section_title");
 
+let memberNameArray = [];
+const nametoDataMap = new Map;
 var isMobile = false;
 var isSpotlight = false;
 
@@ -355,59 +360,83 @@ function galleryUnspotlight() {
 function buildAboutMembers() {
     $.ajax({
         type: "GET",
-        url: "../index_resources/members.json",
+        url: "../index_resources/members/members.json",
         dataType: "json",
-        success: function(data, status){
-            console.log(data.images);
-
-            $.each(data.members, function () {
-                var name_div = '<div class="names">' + this.name + '.</div>'
-                $(memberNames).append(name_div);
-            })
-
+        success: function(data, status) {
+            // console.log(data.images);
+            memberNameArray += "members";
             var imgIndex = Math.floor(Math.random() * data.images.length);
-            var memberBaseImg = data.images[imgIndex]
+            var memberBaseImgData = data.images[imgIndex]
+            nametoDataMap.set("members", [memberBaseImgData.link, memberBaseImgData.desc]);
             
-            
-            // var page_img = "<img id='labs_img' src='" + data.pageImg + "' style='z-index: -2;' alt='page background image' >"
-            // $('body').append(page_img);
-            //
-            // $.each(data.labs, function () {
-            //     var lab_div = "<div ";
-            //
-            //     let lab_id = "lab" + this.labNum +"_button";
-            //     lab_div += "id='" + lab_id +"' "; //id
-            //     lab_div += "class='lab_buttons' "; //lab class
-            //     lab_div += "style='z-index: 2;' >";
-            //
-            //     var lab_img = "<img "
-            //     lab_img += "id='lab" + this.labNum +"_img' "; //img id
-            //     lab_img += "src='" + this.labImg + "' "; //img path
-            //     lab_img += "alt='lab " + this.labNum + "button image' >" //img alt
-            //
-            //     lab_div += lab_img + "</div>";
-            //
-            //     $('#labs_page').append(lab_div);
-            //
-            //     const lab_link = this.link;
-            //     $('#'+ lab_id).on("click", function(){
-            //         window.location.href = lab_link;
-            //     });
-            // })
-            //
-            // $(".lab_buttons").on("mouseover", function(){
-            //     lab_focus(this);
-            //     console.log(this.id + "hovered.");
-            // });
-            //
-            // $(".lab_buttons").on("mouseout", function(){
-            //     lab_unfocus(this);
-            //     console.log(this.id + "unhovered.");
-            // });
+            $.each(data.members, function () {
+                var name_div = '<div id="' + this.id + '" class="names">' + this.name + '.</div>'
+                $(memberNameDiv).append(name_div);
+                memberNameArray += this.name;
+                nametoDataMap.set(this.name, [this.img, this.tags])
+            })
+            memberNames = document.querySelectorAll(".names");
 
-        }, error: function(msg) {
+            updateMemberDetails("members", "")
+
+            memberNames.forEach(function(nameElement) {
+                console.log(nameElement.innerText);
+                nameElement.addEventListener("click", function() {
+                    updateMemberDetails(nameElement.innerText.slice(0, -1), nameElement.id);
+                });
+            })
+            memberTitle.addEventListener("click", function() {
+                updateMemberDetails("members", "");
+            });
+
+
+            // // var imgIndex = Math.floor(Math.random() * data.images.length);
+            // // var memberBaseImgData = data.images[imgIndex]
+            //
+            // var baseImg = '<img id="member_base_img" src="' + memberBaseImgData.link + '" alt="members base img">'
+            // var baseDescription = '<div id="member_details_desc">p? - PROJECT-NAME.' +
+            //     '                    <br>photography: abcde abcdef.' +
+            //     '                    <br>creative direction: bazyx cbazyxv.' +
+            //     '                    <br>models: a a, bb bb, ccc ccc.\n' +
+            //     '                </div>'
+            // $(memberTitle).addClass("activeMember");
+            // $(memberDetails).append(baseImg, baseDescription);
+        }, error: function (msg) {
             // there was a problem
             alert("There was a problem: " + msg.status + " " + msg.statusText);
         }
     });
+}
+
+function updateMemberDetails(name, id) {
+    memberNames.forEach(function (nameElement) {
+        $(nameElement).removeClass("activeMember");
+    })
+    $(memberTitle).removeClass("activeMember");
+
+    memberDetails.innerHTML = '';
+    var newDetails = nametoDataMap.get(name)
+
+    if (name === "members" && id === "") {
+        var membersImg = '<img id="member_base_img" src="' + newDetails[0] + '" alt="members base img">'
+        var membersImgDescription = '<div id="member_details_desc">' + newDetails[1] + '</div>'
+        $(memberDetails).append(membersImg, membersImgDescription);
+        $(memberTitle).addClass("activeMember");
+    } else {
+        var newImg = '<img id="member_base_img" src="' + newDetails[0] + '" alt="members base img">'
+        var newNameTitle = '<div id="member_details_name" class="title">'
+        if (name.split(" ")[0] === "miles") {
+            newNameTitle += name.slice(0, 7) + '.</div>'
+        } else {
+            newNameTitle += name.split(" ")[0] + '.</div>'
+        }
+        var newTags = '<div id="member_details_tags">';
+        newDetails[1].forEach(function(tag) {
+           newTags += tag + " | ";
+        })
+        newTags = newTags.slice(0, -3) + '</div>';
+
+        $(memberDetails).append(newImg, newNameTitle, newTags);
+        $(document.querySelector("#" + id)).addClass("activeMember");
+    }
 }
