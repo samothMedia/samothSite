@@ -48,7 +48,7 @@ header {
 }
 
 #mobile_header_samoth {
-    font-weight: 450;
+    font-weight: bold;
 }
 
 .header-footer_gallery_focus {
@@ -107,8 +107,9 @@ header {
 .gallery_focus.active_page_button { text-shadow: #da0000 0 0 3px; }
 
 .teaser_text {
-    color: #eaeaea;
-    opacity: 40%;
+    color: #ffffff;
+    opacity: 75%;
+    text-shadow: black 0 0 2px;
 }
 
 .black {
@@ -300,6 +301,16 @@ header {
     font-size: 1.2em;
 }
 
+#contact-icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: 60px;
+    margin-top: -10px;
+}
+
 
 /*projects page*/
 
@@ -379,7 +390,7 @@ header {
 
 #gallery_content { /*still needs tweaking + mobile responsiveness*/
     display: flex;
-    margin: 55px 0;
+    margin: 55px 0 0 0;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
@@ -474,15 +485,20 @@ footer > a {
     height: 30px;
 }
 
+.samoth-icon {
+    width: 45px;
+    height: 45px;
+}
+
 .white_footer, .white_header {
     opacity: 40%;
 }
 
-.footer_imgs, .header_imgs {
+.footer_imgs {
     transition: 400ms;
 }
 
-.footer_imgs:hover, .header_imgs:hover {
+.footer_imgs:hover {
     scale: 1.2;
 }
 
@@ -588,7 +604,7 @@ footer > a {
         padding: 0;
     }
     .mobile_header_buttons {
-        padding: 8px 0 0 0;
+        padding: 9px 0 0 0;
     }
 
     #mobile_footer {

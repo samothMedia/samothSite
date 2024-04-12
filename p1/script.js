@@ -344,12 +344,12 @@ function preReleaseTimer() {
 
         // Display the result in the element with id="display_section_preRel_timer"
         if (days > 0) {
-            document.getElementById("display_section_preRel_timer").innerHTML = days + " DAYS.";
+            document.getElementById("display_section_preRel_timer").innerHTML = days + 1 + " DAYS.";
         } else if (hours > 0) {
-            document.getElementById("display_section_preRel_timer").innerHTML = hours + " HOURS."
+            document.getElementById("display_section_preRel_timer").innerHTML = hours + 1 + " HOURS."
                 + minutes + " mins. " + seconds + " secs.";
         } else if (minutes > 0) {
-            document.getElementById("display_section_preRel_timer").innerHTML = minutes + " MINUTES.";
+            document.getElementById("display_section_preRel_timer").innerHTML = minutes + 1 + " MINUTES.";
         } else if (seconds > 0) {
             document.getElementById("display_section_preRel_timer").innerHTML = seconds + " SECONDS."
         } else {
