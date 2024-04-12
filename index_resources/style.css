@@ -47,10 +47,6 @@ header {
     display: none;
 }
 
-#mobile_header_samoth {
-    font-weight: bold;
-}
-
 .header-footer_gallery_focus {
     z-index: 100;
     background-color: transparent;
@@ -107,9 +103,10 @@ header {
 .gallery_focus.active_page_button { text-shadow: #da0000 0 0 3px; }
 
 .teaser_text {
+    font-weight: normal;
     color: #ffffff;
     opacity: 75%;
-    text-shadow: black 0 0 2px;
+    text-shadow: black 0 0 10px;
 }
 
 .black {
