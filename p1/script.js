@@ -9,11 +9,16 @@ var headers = document.querySelectorAll("#header, #mobile_footer");
 var footers = document.querySelectorAll("#footer, #mobile_header");
 var spotlightLayer = document.querySelector("#gallery_spotlight");
 var spotlightImg = document.querySelector("#gallery_spotlight_img");
+var homeLandingSection = document.querySelector("#landing_section");
+var homeDisplaySection = document.querySelector("#display_section");
 var isMobile = false;
 var isSpotlight = false;
 
 window.onload = () => {
+    loading_anime()
+
     preReleaseTimer();
+    windowResize();
 
     // loading_anime();
     if (window.visualViewport.width < window.visualViewport.height) {
@@ -362,5 +367,14 @@ function preReleaseTimer() {
         //     document.getElementById("home_subtitle").innerHTML = "view on ig & in gallery.";
         //     document.getElementById("gallery_date").style.display = "none";
         // }
+    }, 1000);
+}
+
+function windowResize() {
+    var secondTimer = setInterval(function() {
+        // var currentHeight = $(window).height();
+        var currentHeight = window.visualViewport.height;
+        $(homeLandingSection).css("height", currentHeight + "px")
+        $(homeDisplaySection).css("height", currentHeight + "px")
     }, 1000);
 }

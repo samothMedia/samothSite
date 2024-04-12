@@ -184,8 +184,8 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow-y: clip;
-
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 #p2HomePreReleaseBackground {
     width: 100vw;
