@@ -22,10 +22,6 @@ var isSpotlight = false;
 
 window.onload = () => {
     // loading_anime();
-    if (window.visualViewport.width < window.visualViewport.height) {
-        isMobile = true;
-    }
-
     const gridComputedStyle = window.getComputedStyle(document.getElementById("display_img_container"));
 
 // get number of grid rows
@@ -389,18 +385,6 @@ function buildAboutMembers() {
                 updateMemberDetails("members", "");
             });
 
-
-            // // var imgIndex = Math.floor(Math.random() * data.images.length);
-            // // var memberBaseImgData = data.images[imgIndex]
-            //
-            // var baseImg = '<img id="member_base_img" src="' + memberBaseImgData.link + '" alt="members base img">'
-            // var baseDescription = '<div id="member_details_desc">p? - PROJECT-NAME.' +
-            //     '                    <br>photography: abcde abcdef.' +
-            //     '                    <br>creative direction: bazyx cbazyxv.' +
-            //     '                    <br>models: a a, bb bb, ccc ccc.\n' +
-            //     '                </div>'
-            // $(memberTitle).addClass("activeMember");
-            // $(memberDetails).append(baseImg, baseDescription);
         }, error: function (msg) {
             // there was a problem
             alert("There was a problem: " + msg.status + " " + msg.statusText);
@@ -414,29 +398,46 @@ function updateMemberDetails(name, id) {
     })
     $(memberTitle).removeClass("activeMember");
 
-    memberDetails.innerHTML = '';
-    var newDetails = nametoDataMap.get(name)
+    anime({
+        targets: memberDetails.children,
+        opacity: [1, 0],
+        duration: 300,
+        easing:'easeInCubic',
+    });
 
-    if (name === "members" && id === "") {
-        var membersImg = '<img id="member_base_img" src="' + newDetails[0] + '" alt="members base img">'
-        var membersImgDescription = '<div id="member_details_desc">' + newDetails[1] + '</div>'
-        $(memberDetails).append(membersImg, membersImgDescription);
-        $(memberTitle).addClass("activeMember");
-    } else {
-        var newImg = '<img id="member_base_img" src="' + newDetails[0] + '" alt="members base img">'
-        var newNameTitle = '<div id="member_details_name" class="title">'
-        if (name.split(" ")[0] === "miles") {
-            newNameTitle += name.slice(0, 7) + '.</div>'
+    setTimeout(function() {
+        memberDetails.innerHTML = '';
+
+        var newDetails = nametoDataMap.get(name)
+
+        if (name === "members" && id === "") {
+            var membersImg = '<img id="member_base_img" src="' + newDetails[0] + '" alt="members base img" style="opacity: 0;">'
+            var membersImgDescription = '<div id="member_details_desc" style="opacity: 0;">' + newDetails[1] + '</div>'
+            $(memberDetails).append(membersImg, membersImgDescription);
+            $(memberTitle).addClass("activeMember");
         } else {
-            newNameTitle += name.split(" ")[0] + '.</div>'
-        }
-        var newTags = '<div id="member_details_tags">';
-        newDetails[1].forEach(function(tag) {
-           newTags += tag + " | ";
-        })
-        newTags = newTags.slice(0, -3) + '</div>';
+            var newImg = '<img id="member_base_img" src="' + newDetails[0] + '" alt="members base img" style="opacity: 0">'
+            var newNameTitle = '<div id="member_details_name" class="title" style="opacity: 0;">'
+            if (name.split(" ")[0] === "miles") {
+                newNameTitle += name.slice(0, 7) + '.</div>'
+            } else {
+                newNameTitle += name.split(" ")[0] + '.</div>'
+            }
+            var newTags = '<div id="member_details_tags" style="opacity: 0;">';
+            newDetails[1].forEach(function(tag) {
+               newTags += tag + " | ";
+            })
+            newTags = newTags.slice(0, -3) + '</div>';
 
-        $(memberDetails).append(newImg, newNameTitle, newTags);
-        $(document.querySelector("#" + id)).addClass("activeMember");
-    }
+            $(memberDetails).append(newImg, newNameTitle, newTags);
+            $(document.querySelector("#" + id)).addClass("activeMember");
+        }
+
+        anime({
+            targets: memberDetails.children,
+            opacity: [0, 1],
+            duration: 300,
+            easing:'easeInCubic',
+        });
+    }, 350);
 }
