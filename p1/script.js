@@ -346,19 +346,19 @@ function preReleaseTimer() {
         // Display the result in the element with id="display_section_preRel_timer"
         if (days > 0) {
             document.getElementById("display_section_preRel_timer").innerHTML = days + 1 + " DAYS.";
-            console.log("hereDAYS");
+            // console.log("hereDAYS");
         } else if (hours > 0) {
             document.getElementById("display_section_preRel_timer").innerHTML = hours + 1 + " HOURS.";
-            console.log("hereHRS");
+            // console.log("hereHRS");
         } else if (minutes > 0) {
             document.getElementById("display_section_preRel_timer").innerHTML = minutes + 1 + " MINUTES.";
-            console.log("hereMins");
+            // console.log("hereMins");
         } else if (seconds > 0) {
             document.getElementById("display_section_preRel_timer").innerHTML = seconds + " SECONDS."
-            console.log("hereSeconds");
+            // console.log("hereSeconds");
         } else {
             document.getElementById("display_section_preRel_timer").innerHTML = "OUT NOW :0"
-            console.log("hereLAST");
+            // console.log("hereLAST");
         }
 
         // If the count down is finished, write some text
