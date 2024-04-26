@@ -327,7 +327,7 @@ function galleryUnspotlight() {
 
 function preReleaseTimer() {
     // set the date we're counting down to
-    var countDownDate = new Date("April 26, 2024 10:00:00").getTime();
+    var countDownDate = new Date("April 27, 2024 10:00:00").getTime();
 
 // Update the count down every 1 second
     var timer = setInterval(function() {
@@ -346,15 +346,19 @@ function preReleaseTimer() {
         // Display the result in the element with id="display_section_preRel_timer"
         if (days > 0) {
             document.getElementById("display_section_preRel_timer").innerHTML = days + 1 + " DAYS.";
+            console.log("hereDAYS");
         } else if (hours > 0) {
-            document.getElementById("display_section_preRel_timer").innerHTML = hours + 1 + " HOURS."
-                + minutes + " mins. " + seconds + " secs.";
+            document.getElementById("display_section_preRel_timer").innerHTML = hours + 1 + " HOURS.";
+            console.log("hereHRS");
         } else if (minutes > 0) {
             document.getElementById("display_section_preRel_timer").innerHTML = minutes + 1 + " MINUTES.";
+            console.log("hereMins");
         } else if (seconds > 0) {
             document.getElementById("display_section_preRel_timer").innerHTML = seconds + " SECONDS."
+            console.log("hereSeconds");
         } else {
             document.getElementById("display_section_preRel_timer").innerHTML = "OUT NOW :0"
+            console.log("hereLAST");
         }
 
         // If the count down is finished, write some text
