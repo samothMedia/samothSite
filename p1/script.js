@@ -327,7 +327,7 @@ function galleryUnspotlight() {
 
 function preReleaseTimer() {
     // set the date we're counting down to
-    var countDownDate = new Date("April 27, 2024 10:00:00").getTime();
+    var countDownDate = new Date("April 29, 2024 10:00:00").getTime();
 
 // Update the count down every 1 second
     var timer = setInterval(function() {
