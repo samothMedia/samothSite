@@ -9,14 +9,17 @@ var headers = document.querySelectorAll("#header, #mobile_footer");
 var footers = document.querySelectorAll("#footer, #mobile_header");
 var spotlightLayer = document.querySelector("#gallery_spotlight");
 var spotlightImg = document.querySelector("#gallery_spotlight_img");
+var homeLandingSection = document.querySelector("#landing_section");
+var homeDisplaySection = document.querySelector("#display_section");
 var isMobile = false;
 var isSpotlight = false;
 
 window.onload = () => {
-    // loading_anime();
-    if (window.visualViewport.width < window.visualViewport.height) {
-        isMobile = true;
-    }
+    loading_anime()
+
+    preReleaseTimer();
+
+    windowResize();
 
     const gridComputedStyle = window.getComputedStyle(document.getElementById("display_img_container"));
 
@@ -345,4 +348,70 @@ function galleryUnspotlight() {
 
     isSpotlight = false;
     $(document.querySelector("#gallery_content")).removeClass("galleryContent-SpotlightEnabled");
+}
+
+function preReleaseTimer() {
+    // set the date we're counting down to
+    var countDownDate = new Date("April 29, 2024 10:00:00").getTime();
+
+// Update the count down every 1 second
+    var timer = setInterval(function() {
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="display_section_preRel_timer"
+        if (days > 0) {
+            document.getElementById("display_section_preRel_timer").innerHTML = days + 1 + " DAYS.";
+            // console.log("hereDAYS");
+        } else if (hours > 0) {
+            document.getElementById("display_section_preRel_timer").innerHTML = hours + 1 + " HOURS.";
+            // console.log("hereHRS");
+        } else if (minutes > 0) {
+            document.getElementById("display_section_preRel_timer").innerHTML = minutes + 1 + " MINUTES.";
+            // console.log("hereMins");
+        } else if (seconds > 0) {
+            document.getElementById("display_section_preRel_timer").innerHTML = seconds + " SECONDS."
+            // console.log("hereSeconds");
+        } else {
+            document.getElementById("display_section_preRel_timer").innerHTML = "OUT NOW :0"
+            // console.log("hereLAST");
+        }
+
+        // If the count down is finished, write some text
+        // if (distance < 0) {
+        //     clearInterval(timer);
+        //     document.getElementById("home_subtitle").innerHTML = "view on ig & in gallery.";
+        //     document.getElementById("gallery_date").style.display = "none";
+        // }
+    }, 1000);
+}
+
+function windowResize() {
+    var secondTimer = setInterval(function() {
+        // var currentHeight = $(window).height();
+
+        if (window.visualViewport.width < window.visualViewport.height) {
+            isMobile = true;
+        }
+        var currentHeight = window.visualViewport.height;
+        $(homeLandingSection).css("height",(currentHeight-55) + "px")
+        $(homeDisplaySection).css("height",(currentHeight-55) + "px")
+
+        if (isMobile) {
+            $(homeLandingSection).css("margin", "0");
+            $(homeDisplaySection).css("margin", "0 0 55px 0");
+        } else {
+            $(homeLandingSection).css("margin", "55px 0 0 0");
+            $(homeDisplaySection).css("margin", "0");
+        }
+    }, 1000);
 }

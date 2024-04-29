@@ -47,10 +47,6 @@ header {
     display: none;
 }
 
-#mobile_header_samoth {
-    font-weight: 450;
-}
-
 .header-footer_gallery_focus {
     z-index: 100;
     background-color: transparent;
@@ -72,7 +68,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 65px;
-    padding: 0 30px;
+    padding: 30px;
 }
 
 .navbar_buttons {
@@ -108,7 +104,8 @@ header {
 
 .teaser_text {
     color: #eaeaea;
-    opacity: 40%;
+    opacity: 75%;
+    text-shadow: black 0 0 10px;
 }
 
 .black {
@@ -187,13 +184,26 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow-y: clip;
-
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 #p2HomePreReleaseBackground {
-    width: 110vw;
-    margin: -3px 9.8vw 0 0;
-
+    width: 100vw;
+    /*height: 110vh;*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 8px;*/
+    /*height: 213.3vw;*/
+    margin: 200px 0 0 0;
+}
+#p2HomePreReleaseBackground2 {
+    width: 100vw;
+    /*height: 110vh;*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 8px;*/
+    /*height: 213.3vw;*/
+    margin: 50px 0 0 0;
 }
 #p2HomePostReleaseBackground {
     width: 102.5vw;
@@ -202,9 +212,9 @@ header {
 }
 
 #p2HomeTitleImg {
-    width: auto;
+    width: 62%;
     height: auto;
-    z-index: 20;
+    z-index: 5;
     position: absolute;
 }
 
@@ -278,8 +288,7 @@ header {
     color: #EAEAEA;
 }
 
-/* ABOUT PAGE: */
-
+/* ABOUT PAGE */
 #about_page {
     /*display: flex;*/
     /*width: 100vw;*/
@@ -322,6 +331,16 @@ header {
     font-size: 1.2em;
 }
 
+#contact-icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: 60px;
+    margin-top: -10px;
+}
+
 #member_section {
     display: flex;
     width: 100%;
@@ -331,7 +350,7 @@ header {
 }
 
 
-/* PROJECTS PAGE: */
+/* PROJECTS PAGE */
 
 #projects_page {
     justify-content: center;
@@ -343,7 +362,7 @@ header {
 }
 
 
-/* GALLERY PAGE: :*/
+/* GALLERY PAGE */
 
 #gallery_page {
     justify-content: center;
@@ -393,7 +412,7 @@ header {
 
 #gallery_content { /*still needs tweaking + mobile responsiveness*/
     display: flex;
-    margin: 55px 0;
+    margin: 55px 0 0 0;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
@@ -488,15 +507,20 @@ footer > a {
     height: 30px;
 }
 
+.samoth-icon {
+    width: 45px;
+    height: 45px;
+}
+
 .white_footer, .white_header {
     opacity: 40%;
 }
 
-.footer_imgs, .header_imgs {
+.footer_imgs {
     transition: 400ms;
 }
 
-.footer_imgs:hover, .header_imgs:hover {
+.footer_imgs:hover {
     scale: 1.2;
 }
 
@@ -530,6 +554,12 @@ footer > a {
         margin-right: 65vh;
     }
 
+    #p2HomeTitleImg {
+        width: inherit;
+        height: auto;
+        padding: 0 20px;
+    }
+
     #about_text_sec {
         max-width: 680px;
         font-size: 19px;
@@ -553,15 +583,13 @@ footer > a {
     .navbar_buttons {
         font-size: 20px;
     }
-
-    #p2HomeTitleImg {
-       width: inherit;
-        height: auto;
-        padding: 0 20px;
-    }
 }
 
 @media (max-width: 765px) {
+    #p2TeaserLanding {
+        top: -10px;
+    }
+
     #p2HomePostReleaseBackground {
         margin-top: -4vh;
     }
@@ -587,19 +615,16 @@ footer > a {
     }
     #mobile_header_samoth {
         padding: 0;
+        font-weight: normal;
     }
     .mobile_header_buttons {
-        padding: 8px 0 0 0;
+        padding: 9px 0 0 0;
     }
 
     #mobile_footer {
         display: flex;
         justify-content: space-evenly;
         padding: 0;
-    }
-
-    #p2TeaserLanding {
-        top: -10px;
     }
 }
 @media (max-width: 576px) {
@@ -641,6 +666,10 @@ footer > a {
     }
 }
 @media (max-width: 475px) {
+    #p2TeaserLanding {
+        left: -12.5vh;
+    }
+
     #p2HomePreReleaseBackground {
         margin-right: 90vh;
     }
@@ -654,9 +683,5 @@ footer > a {
     }
     .navbar_buttons {
         font-size: 16px;
-    }
-
-    #p2TeaserLanding {
-        left: -12.5vh;
     }
 }
