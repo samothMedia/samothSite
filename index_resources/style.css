@@ -428,6 +428,7 @@ img {
 
 img.gallery_img {
     width: 31vw;
+    height: auto;
 }
 
 img.square {

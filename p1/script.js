@@ -11,7 +11,7 @@ var spotlightLayer = document.querySelector("#gallery_spotlight");
 var spotlightImg = document.querySelector("#gallery_spotlight_img");
 var homeLandingSection = document.querySelector("#landing_section");
 var homeDisplaySection = document.querySelector("#display_section");
-var displayImgs = document.querySelectorAll(".FAKE_p2_display_imgs");
+var displayImgs = document.querySelectorAll(".p2_display_imgs");
 var displayGrid = document.querySelector("#display_img_container");
 var isMobile = window.visualViewport.width < 766;
 var isSpotlight = false;
@@ -25,22 +25,26 @@ window.onload = () => {
     console.log(isMobile);
     buildLandingDisplay();
 
-    gallery_imgs.forEach(function(img) {
-        // console.log(img);
-        img.addEventListener("mouseenter", function() {
-          if (!isSpotlight && !isMobile) {
-            galleryFocus(img);
-          }
-        });
+    allImgs = [gallery_imgs];
+    // allImgs = [gallery_imgs, displayImgs];
+    allImgs.forEach(function(imgList) {
+        imgList.forEach(function (img ) {
+            // console.log(img);
+            img.addEventListener("mouseenter", function() {
+                if (!isSpotlight && !isMobile) {
+                    galleryFocus(img);
+                }
+            });
 
-        img.addEventListener("mouseleave", function() {
-          if (!isSpotlight && !isMobile) {
-            galleryUnfocus(img);
-          }
-        });
+            img.addEventListener("mouseleave", function() {
+                if (!isSpotlight && !isMobile) {
+                    galleryUnfocus(img);
+                }
+            });
 
-        img.addEventListener("click", function () {
-            gallery_spotlightLayering(img);
+            img.addEventListener("click", function () {
+                gallerySpotlight(img);
+            })
         })
     })
 
@@ -242,7 +246,7 @@ function galleryUnfocus(img) {
     });
 }
 
-function gallery_spotlightLayering(target_img) {
+function gallerySpotlight(target_img) {
     $(document.querySelector("#gallery_content")).addClass("galleryContent-SpotlightEnabled");
 
     isSpotlight = true;
