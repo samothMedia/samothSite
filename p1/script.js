@@ -11,40 +11,19 @@ var spotlightLayer = document.querySelector("#gallery_spotlight");
 var spotlightImg = document.querySelector("#gallery_spotlight_img");
 var homeLandingSection = document.querySelector("#landing_section");
 var homeDisplaySection = document.querySelector("#display_section");
-var isMobile = false;
+var displayImgs = document.querySelectorAll(".FAKE_p2_display_imgs");
+var displayGrid = document.querySelector("#display_img_container");
+var isMobile = window.visualViewport.width < 766;
 var isSpotlight = false;
 
 window.onload = () => {
-    loading_anime()
+    // loading_anime()
 
-    preReleaseTimer();
+    // preReleaseTimer();
 
     windowResize();
-
-    const gridComputedStyle = window.getComputedStyle(document.getElementById("display_img_container"));
-
-// get number of grid rows
-    const gridRowCount = gridComputedStyle.getPropertyValue("grid-template-rows").split(" ").length;
-
-// get number of grid columns
-    const gridColumnCount = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
-
-    console.log(gridRowCount, gridColumnCount);
-
-    var style = document.createElement('style');
-
-    img1ComuptedStyle = window.getComputedStyle(document.getElementById("display_img_1"))
-    img1Width = parseInt(img1ComuptedStyle.getPropertyValue("width").split("px")[0])
-
-    var img1Position = Math.round(gridColumnCount/2) - Math.floor((img1Width/2)/20);
-    if (img1Position < 0) {
-        img1Position = 1
-    }
-
-    $(style).append('.cssClass { grid-column: ' + img1Position.toString() + '; }')
-    document.querySelector('head').appendChild(style);
-
-    $(document.getElementById("display_img_1")).addClass("cssClass");
+    console.log(isMobile);
+    buildLandingDisplay();
 
     gallery_imgs.forEach(function(img) {
         // console.log(img);
@@ -399,12 +378,14 @@ function windowResize() {
     var secondTimer = setInterval(function() {
         // var currentHeight = $(window).height();
 
-        if (window.visualViewport.width < window.visualViewport.height) {
+        console.log(window.visualViewport.width)
+
+        if (window.visualViewport.width < 766) {
             isMobile = true;
         }
         var currentHeight = window.visualViewport.height;
         $(homeLandingSection).css("height",(currentHeight-55) + "px")
-        $(homeDisplaySection).css("height",(currentHeight-55) + "px")
+        // $(homeDisplaySection).css("height",(currentHeight-55) + "px")
 
         if (isMobile) {
             $(homeLandingSection).css("margin", "0");
@@ -413,5 +394,137 @@ function windowResize() {
             $(homeLandingSection).css("margin", "55px 0 0 0");
             $(homeDisplaySection).css("margin", "0");
         }
+
+        console.log(isMobile)
     }, 1000);
+}
+
+function buildLandingDisplay() {
+  const gridComputedStyle = window.getComputedStyle(document.getElementById("display_img_container"));
+
+// get number of grid rows
+  const gridRowCount = gridComputedStyle.getPropertyValue("grid-template-rows").split(" ").length;
+
+// get number of grid columns
+  const gridColumnCount = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
+
+  console.log(gridRowCount, gridColumnCount);
+
+  var style = document.createElement('style');
+  document.querySelector('head').appendChild(style);
+
+  imgPosition = [
+      [1365, 200, 125],
+      [1640, 1655, 366],
+      [1365, 3385, 125],
+      [1494, 200, 2263],
+      [2966, 1784, 2263],
+      [1494, 200, 4456],
+      [1647, 1784, 4084],
+      [1229, 3521, 4084],
+      [3040, 200, 5811],
+      [1420, 3330, 5811],
+      [1270, 200, 7675],
+      [3190, 1560, 7675],
+      [1456.51, 200, 9606],
+      [1456.51, 1746.74, 9606],
+      [1456.51, 3293.48, 9606],
+  ]
+  var currentViewportWidth = window.visualViewport.width;
+
+  if (currentViewportWidth <= 576 ) {
+      var landingBackground = document.getElementById('p2HomePostReleaseBackground');
+      $(landingBackground).attr("src","index_resources/landing/p2PostReleaseLandingMobile" + (Math.ceil(Math.random()*9)).toString() + ".png");
+  }
+
+  if (isMobile) {
+
+  }
+        // if (!isMobile) {
+
+    var scale = currentViewportWidth / 4950
+
+    var gridWidth = 4550 * scale;
+    var gridHeight = 11666.3 * scale;
+    $(displayGrid).css('width', gridWidth);
+    if (isMobile) {
+        $(displayGrid).css('height', 'auto');
+        $(homeDisplaySection).css('height', 'auto')
+    } else {
+        $(displayGrid).css('height', gridHeight);
+        $(homeDisplaySection).css('height', gridHeight+150)
+    }
+    // }
+
+  // var counter = 0;
+  var rowCounter = 1;
+  for (var i = 1; i < 16; i++) {
+    var oldI = -1;
+    if (isMobile) {
+        if (i === 1) {
+            oldI = i;
+            i = 5;
+        } else if (i === 5) {
+            oldI = i;
+            i = 1;
+        }
+    }
+
+    var newImg = '<img id="display_img_' + i + '" class="p2_display_imgs" ' +
+        'src="index_resources/display/p2Display' + i + '.png" alt="p2 post release display img" ';
+
+    var newWidth;
+    var imgColumn;
+    var imgRow;
+
+    if (isMobile) {
+        newWidth = gridWidth;
+        imgColumn = 0;
+        imgRow = 0;
+        
+        $(displayGrid).addClass('mobileDisplay')
+    } else {
+        newWidth = Math.round(imgPosition[i-1][0] * scale);
+        imgColumn = Math.round(((imgPosition[i-1][1]-200)*scale)/2 + 1); //columns start at 1
+        imgRow = Math.round(((imgPosition[i-1][2]-125)*scale)/2 + 1); //rows start at 1
+    }
+    newImg +=  'style="width: ' + newWidth + 'px; ';
+
+    // $(document.querySelector("#display_img_" + i)).css("width", newWidth);
+
+    // var imgColumn = Math.round(((imgPosition[i-1][1]-200)*scale)/2 + 1); //columns start at 1
+    // var imgRow = Math.round(((imgPosition[i-1][2]-125)*scale)/2 + 1); //rows start at 1
+
+    newImg +=  'grid-row: ' + imgRow + '; ';
+    newImg +=  'grid-column: ' + imgColumn + ';">';
+
+    $(displayGrid).append(newImg);
+
+    // $(style).append('.displayImg' + counter +  ' { grid-column: ' + imgColumn + '; grid-row: ' + imgRow + ';}')
+    // $(img).addClass("displayImg" + counter);
+    // counter++;
+    if (oldI !== -1) {
+        i = oldI;
+        oldI = -1;
+    }
+  }
+
+  var displayText = 'photography: miles fortuno<br>' +
+      'creative direction & editing: miles thomas<br>' +
+      'models: kapinga tshibangu, kayla villescas, raven levitt, tiff suporn, mags martin, fionna lam, miles thomas';
+  var displayTextDiv = '<div id="displayCredits" style="width: ' + gridWidth + 'px;">' + displayText + '</div>';
+  $(homeDisplaySection).append(displayTextDiv);
+    
+  // img1ComuptedStyle = window.getComputedStyle(document.getElementById("display_img_1"))
+  // img1Width = parseInt(img1ComuptedStyle.getPropertyValue("width").split("px")[0])
+  //
+  // var img1Position = Math.round(gridColumnCount/2) - Math.floor((img1Width/2)/20);
+  // if (img1Position < 0) {
+  //     img1Position = 1
+  // }
+  //
+  // $(style).append('.cssClass { grid-column: ' + img1Position.toString() + '; }')
+  // document.querySelector('head').appendChild(style);
+  //
+  // $(document.getElementById("display_img_1")).addClass("cssClass");
 }
