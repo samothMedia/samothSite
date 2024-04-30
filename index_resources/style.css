@@ -719,6 +719,9 @@ footer > a {
         font-size: 12px;
         margin: 7px 0;
     }
+    .displayCreditLinks:hover {
+        font-size: 13px;
+    }
 
     #about_page {
         height: 100%;
