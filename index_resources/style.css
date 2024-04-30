@@ -604,6 +604,10 @@ footer > a {
         justify-content: space-evenly;
         padding: 0;
     }
+
+    div.gallery_column {
+        row-gap: 8px;
+    }
 }
 @media (max-width: 576px) {
     #home_page {

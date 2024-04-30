@@ -17,7 +17,7 @@ var isMobile = window.visualViewport.width < 766;
 var isSpotlight = false;
 
 window.onload = () => {
-    // loading_anime()
+    loading_anime()
 
     // preReleaseTimer();
 
