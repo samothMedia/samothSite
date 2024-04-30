@@ -13,6 +13,13 @@ var homeLandingSection = document.querySelector("#landing_section");
 var homeDisplaySection = document.querySelector("#display_section");
 var displayImgs = document.querySelectorAll(".p2_display_imgs");
 var displayGrid = document.querySelector("#display_img_container");
+var memberNameDiv = document.querySelector("#member_name_div");
+var memberDetails = document.querySelector("#member_details_div")
+var memberNames;
+var memberTitle = document.querySelector("#member_section_title");
+let memberNameArray = [];
+const nametoDataMap = new Map;
+
 var isMobile = window.visualViewport.width < 766;
 var isSpotlight = false;
 
@@ -24,6 +31,7 @@ window.onload = () => {
     windowResize();
     console.log(isMobile);
     buildLandingDisplay();
+    buildAboutMembers();
 
     allImgs = [gallery_imgs];
     // allImgs = [gallery_imgs, displayImgs];
@@ -368,13 +376,6 @@ function preReleaseTimer() {
             document.getElementById("display_section_preRel_timer").innerHTML = "OUT NOW :0"
             // console.log("hereLAST");
         }
-
-        // If the count down is finished, write some text
-        // if (distance < 0) {
-        //     clearInterval(timer);
-        //     document.getElementById("home_subtitle").innerHTML = "view on ig & in gallery.";
-        //     document.getElementById("gallery_date").style.display = "none";
-        // }
     }, 1000);
 }
 
@@ -518,17 +519,93 @@ function buildLandingDisplay() {
       'models: kapinga tshibangu, kayla villescas, raven levitt, tiff suporn, mags martin, fionna lam, miles thomas';
   var displayTextDiv = '<div id="displayCredits" style="width: ' + gridWidth + 'px;">' + displayText + '</div>';
   $(homeDisplaySection).append(displayTextDiv);
-    
-  // img1ComuptedStyle = window.getComputedStyle(document.getElementById("display_img_1"))
-  // img1Width = parseInt(img1ComuptedStyle.getPropertyValue("width").split("px")[0])
-  //
-  // var img1Position = Math.round(gridColumnCount/2) - Math.floor((img1Width/2)/20);
-  // if (img1Position < 0) {
-  //     img1Position = 1
-  // }
-  //
-  // $(style).append('.cssClass { grid-column: ' + img1Position.toString() + '; }')
-  // document.querySelector('head').appendChild(style);
-  //
-  // $(document.getElementById("display_img_1")).addClass("cssClass");
+}
+
+function buildAboutMembers() {
+  $.ajax({
+    type: "GET",
+    url: "../index_resources/members/members.json",
+    dataType: "json",
+    success: function(data, status) {
+      // console.log(data.images);
+      memberNameArray += "members";
+      var imgIndex = Math.floor(Math.random() * data.images.length);
+      var memberBaseImgData = data.images[imgIndex]
+      nametoDataMap.set("members", [memberBaseImgData.link, memberBaseImgData.desc]);
+
+      $.each(data.members, function () {
+        var name_div = '<div id="' + this.id + '" class="names">' + this.name + '.</div>'
+        $(memberNameDiv).append(name_div);
+        memberNameArray += this.name;
+        nametoDataMap.set(this.name, [this.img, this.tags])
+      })
+      memberNames = document.querySelectorAll(".names");
+
+      updateMemberDetails("members", "")
+
+      memberNames.forEach(function(nameElement) {
+        console.log(nameElement.innerText);
+        nameElement.addEventListener("click", function() {
+          updateMemberDetails(nameElement.innerText.slice(0, -1), nameElement.id);
+        });
+      })
+      memberTitle.addEventListener("click", function() {
+        updateMemberDetails("members", "");
+      });
+
+    }, error: function (msg) {
+      // there was a problem
+      alert("There was a problem: " + msg.status + " " + msg.statusText);
+    }
+  });
+}
+
+function updateMemberDetails(name, id) {
+  memberNames.forEach(function (nameElement) {
+    $(nameElement).removeClass("activeMember");
+  })
+  $(memberTitle).removeClass("activeMember");
+
+  anime({
+    targets: memberDetails.children,
+    opacity: [1, 0],
+    duration: 300,
+    easing:'easeInCubic',
+  });
+
+  setTimeout(function() {
+    memberDetails.innerHTML = '';
+
+    var newDetails = nametoDataMap.get(name)
+
+    if (name === "members" && id === "") {
+      var membersImg = '<img id="member_base_img" src="' + newDetails[0] + '" alt="members base img" style="opacity: 0;">'
+      var membersImgDescription = '<div id="member_details_desc" style="opacity: 0;">' + newDetails[1] + '</div>'
+      $(memberDetails).append(membersImg, membersImgDescription);
+      $(memberTitle).addClass("activeMember");
+    } else {
+      var newImg = '<img id="member_base_img" src="' + newDetails[0] + '" alt="members base img" style="opacity: 0">'
+      var newNameTitle = '<div id="member_details_name" class="title" style="opacity: 0;">'
+      if (name.split(" ")[0] === "miles") {
+        newNameTitle += name.slice(0, 7) + '.</div>'
+      } else {
+        newNameTitle += name.split(" ")[0] + '.</div>'
+      }
+      var newTags = '<div id="member_details_tags" style="opacity: 0;">';
+      newDetails[1].forEach(function(tag) {
+        newTags += tag + " | ";
+      })
+      newTags = newTags.slice(0, -3) + '</div>';
+
+      $(memberDetails).append(newImg, newNameTitle, newTags);
+      $(document.querySelector("#" + id)).addClass("activeMember");
+    }
+
+    anime({
+      targets: memberDetails.children,
+      opacity: [0, 1],
+      duration: 300,
+      easing:'easeInCubic',
+    });
+  }, 350);
 }
