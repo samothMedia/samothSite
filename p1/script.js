@@ -32,7 +32,7 @@ window.onload = () => {
     // preReleaseTimer();
 
     windowResize();
-    console.log(isMobile);
+    // console.log(isMobile);
     buildLandingDisplay();
     buildAboutMembers();
 
@@ -386,7 +386,7 @@ function windowResize() {
     var secondTimer = setInterval(function() {
         // var currentHeight = $(window).height();
 
-        console.log(window.visualViewport.width)
+        // console.log(window.visualViewport.width)
 
         if (window.visualViewport.width < 769) {
             isMobile = true;
@@ -415,7 +415,7 @@ function windowResize() {
           $(aboutAboutSectionText).css("margin", "0");
         }
 
-        console.log(isMobile)
+        // console.log(isMobile)
     }, 1000);
 }
 
@@ -428,7 +428,7 @@ function buildLandingDisplay() {
 // get number of grid columns
   const gridColumnCount = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
 
-  console.log(gridRowCount, gridColumnCount);
+  // console.log(gridRowCount, gridColumnCount);
 
   var style = document.createElement('style');
   document.querySelector('head').appendChild(style);
@@ -528,6 +528,15 @@ function buildLandingDisplay() {
   var displayText = 'photography: miles fortuno<br>' +
       'creative direction & editing: miles thomas<br>' +
       'models: kapinga tshibangu, kayla villescas, raven levitt, tiff suporn, mags martin, fionna lam, miles thomas';
+  var displayText = 'photography: <a href="https://instagram.com/fortography0809" class="displayCreditLinks" target="_blank">miles fortuno</a><br>' +
+      'creative direction & editing: <a href="https://instagram.com/miles.th0mas" class="displayCreditLinks" target="_blank">miles thomas</a><br>' +
+      'models: <a href="https://instagram.com/kapingatshi" class="displayCreditLinks" target="_blank">kapinga tshibangu</a> | ' +
+      '<a href="https://instagram.com/idiowreque" class="displayCreditLinks" target="_blank">mags martin</a> | ' +
+      '<a href="https://instagram.com/tiffsoup" class="displayCreditLinks" target="_blank">tiff suporn</a> | ' +
+      '<a href="https://instagram.com/kaylavillecas" class="displayCreditLinks" target="_blank">kayla villescas</a> | ' +
+      '<a href="https://instagram.com/raven.l.levitt" class="displayCreditLinks" target="_blank">raven levitt</a> | ' +
+      '<a href="https://instagram.com/_fionnalam" class="displayCreditLinks" target="_blank">fionna lam</a> | ' +
+      '<a href="https://instagram.com/miles.th0mas" class="displayCreditLinks" target="_blank">miles thomas</a>';
   var displayTextDiv = '<div id="displayCredits" style="width: ' + gridWidth + 'px;">' + displayText + '</div>';
   $(homeDisplaySection).append(displayTextDiv);
 }
@@ -555,7 +564,7 @@ function buildAboutMembers() {
       updateMemberDetails("members", "")
 
       memberNames.forEach(function(nameElement) {
-        console.log(nameElement.innerText);
+        // console.log(nameElement.innerText);
         nameElement.addEventListener("click", function() {
           updateMemberDetails(nameElement.innerText.slice(0, -1), nameElement.id);
         });

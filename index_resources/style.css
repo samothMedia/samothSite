@@ -242,6 +242,14 @@ header {
     height: auto;
     margin: 10px 0;
 }
+.displayCreditLinks {
+    color: #980000;
+    transition: 400ms;
+}
+.displayCreditLinks:hover {
+    font-size: 18px;
+    /*transition: 400ms;*/
+}
 
 .title {
     /*color: #EAEAEA;*/
