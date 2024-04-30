@@ -6,19 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>samoth.</title>
         <link rel="icon" type="image/x-icon" href="./index_resources/samothFavicon.png">
+        <script src="p1/resources/jquery-3.7.1.min.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V1J03GWY4"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-5V1J03GWY4');
-        </script>
+        <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date()); gtag('config', 'G-5V1J03GWY4');</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
                 integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://kit.fontawesome.com/3424007297.js" crossorigin="anonymous"></script>
-        <script src = "p1/resources/jquery-3.7.1.min.js"></script>
         <script defer src="p1/script.js"></script>
     </head>
     <body>
@@ -50,15 +45,14 @@
           </a>
         </header>
         <div id="home_page" class="pages">
-          <div id="home_content">
+          <div id="home_content" class="scrolling_page_content">
 <!--          <div>-->
-          <div id="landing_section">
-<!--            <img id="p2HomePreReleaseBackground" src=index_resources/p2preReleaseMain.png alt="p2 pre release landing img">-->
-            <img id="p2HomePreReleaseBackground2" src=index_resources/p2preReleaseMain2.png alt="p2 pre release landing img">
-            <img id="p2HomeTitleImg" src="index_resources/p2preReleaseTitle.png">
+          <div id="landing_section" class="scrolling_page_section">
+            <img id="p2HomePostReleaseBackground" src="index_resources/landing/p2PostReleaseLanding.png" alt="p2 post release landing img">
+            <img id="p2HomeTitleImg" src="index_resources/p2PostReleaseHomeTitle.png">
           </div>
-          <div id="display_section">
-            <div id="display_section_preRel_timer" class="title">## D.</div>
+          <div id="display_section" class="scrolling_page_section">
+            <div id="display_img_container"></div>
           </div>
           </div>
         </div>
@@ -71,44 +65,50 @@
             <div id="loading_samoth" class="title" style="display: none;">samoth.</div>
         </div>
         <div id="about_page" class="pages">
-            <div id="about_content">
-              <div class="title about_title">about us.</div>
-              <div class="about_text_containers">
-                <div class="about-text">
-                  <a>samoth.</a> is both a diverse, visual creative media portfolio and the collective of passionate
-                  creatives—fashion stylists, models, photographers, videographers, makeup artists, front-end
-                  developers, etc—whom exercise their niches in an organized, collaborative environment to produce and
-                  manage said portfolio.
-                </div>
-                <div class="about-text">
-                  the ability to freely express our art, garner hands-on professional experience in media production,
-                  amplify each other’s shared passions, rally more and more creatives to our cause, and inspire others
-                  to embrace their artistic natures is our profit, nothing more.
-                </div>
-                <div class="about-text">
-                  what was originally drafted as a small creative fashion portfolio has quickly developed into
-                  something so much more, and we’re just getting started.
+            <div id="about_content" class="scrolling_page_content">
+              <div id="about_section" class="scrolling_page_section">
+                <div id="about_text_container" class="scrolling_page_section">
+                  <div class="title about_title">about us.</div>
+                  <div class="about-text">
+                    <a>samoth.</a> is both a diverse, visual creative media portfolio and the collective of passionate
+                    creatives—fashion stylists, models, photographers, videographers, makeup artists, front-end
+                    developers, etc—whom exercise their niches in an organized, collaborative environment to produce and
+                    manage said portfolio.
+                  </div>
+                  <div class="about-text">
+                    the ability to freely express our art, garner hands-on professional experience in media production,
+                    amplify each other’s shared passions, rally more and more creatives to our cause, and inspire others
+                    to embrace their artistic natures is our profit, nothing more.
+                  </div>
+                  <div class="about-text">
+                    what was originally drafted as a small creative fashion portfolio has quickly developed into
+                    something so much more, and we’re just getting started.
+                  </div>
+                  <div class="about-text">
+                    contact our instagram below for inquiries.
+                  </div>
+                  <div id="contact-icon-container">
+                    <a href="https://instagram.com/sam0th_" target="_blank">
+                      <img id="ig-icon-black" class="footer_imgs black black_footer ig-logo" src="./p1/resources/ig_logo.png" alt="Instagram logo">
+                      <img id="ig-icon-white" class="footer_imgs white white_footer ig-logo" src="./p1/resources/ig_logo_white.png" alt="Instagram logo white">
+                      <!--              <img id="ig-logo-p2red" class="footer_buttons ig-logo" src="index_resources/ig_logo_p2redv2.png" alt="Instagram logo red">-->
+                    </a>
+                    <a href="https://github.com/ths22115/samoth" target="_blank">
+                      <img id="github-icon-black" class="footer_imgs black black_footer github-logo"  src="./p1/resources/github_logo.png" alt="Github logo">
+                      <img id="github-icon-white" class="footer_imgs white white_footer github-logo" src="./p1/resources/github_logo_white.png" alt="Github logo white">
+                      <!--              <img id="github-logo-p2red" class="footer_buttons github-logo" src="index_resources/github_logo_p2red.png" alt="Github logo red" >-->
+                    </a>
+                  </div>
                 </div>
               </div>
-<!--              <div class="title about_title">the who.</div>-->
-              <div class="about_text_containers">
-<!--                <div class="about-text">-->
-<!--                  coming soon.-->
-<!--                </div>-->
-                <div class="about-text">
-                  contact our instagram below for inquiries.
+              <div id="member_section" class="scrolling_page_section">
+                <div id="members_dev_blocker" class="title">
+                  soon.
                 </div>
-                <div id="contact-icon-container">
-                  <a href="https://instagram.com/sam0th_" target="_blank">
-                    <img id="ig-icon-black" class="footer_imgs black black_footer ig-logo" src="./p1/resources/ig_logo.png" alt="Instagram logo">
-                    <img id="ig-icon-white" class="footer_imgs white white_footer ig-logo" src="./p1/resources/ig_logo_white.png" alt="Instagram logo white">
-                    <!--              <img id="ig-logo-p2red" class="footer_buttons ig-logo" src="index_resources/ig_logo_p2redv2.png" alt="Instagram logo red">-->
-                  </a>
-                  <a href="https://github.com/ths22115/samoth" target="_blank">
-                    <img id="github-icon-black" class="footer_imgs black black_footer github-logo"  src="./p1/resources/github_logo.png" alt="Github logo">
-                    <img id="github-icon-white" class="footer_imgs white white_footer github-logo" src="./p1/resources/github_logo_white.png" alt="Github logo white">
-                    <!--              <img id="github-logo-p2red" class="footer_buttons github-logo" src="index_resources/github_logo_p2red.png" alt="Github logo red" >-->
-                  </a>
+                <div id="member_name_div">
+                  <div id="member_section_title" class="title">members.</div>
+                </div>
+                <div id="member_details_div">
                 </div>
               </div>
             </div>
@@ -117,23 +117,28 @@
           <div id="projects_comingSoon" class="title">soon.</div>
         </div>
         <div id="gallery_page" class="pages">
-<!--            <div id="gallery_date" class="samoth"></div>-->
             <div id="gallery_content">
                 <div id="left_gallery_column" class="gallery_column">
-<!--                    <div class="img_wrapper" style="z-index: 10">-->
-                        <img id="topleftgallery" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img1.png" alt="gallery image 1">
-<!--                    </div>-->
-                    <img id="midleftgallery" class="gallery_img short_rect" src="p1/resources/gallery/allureSubdue_img2.png" alt="gallery image 2">
-                    <img id="botleftgallery" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img3.png" alt="gallery image 3">
+                  <img id="gallery1" class="gallery_img" src="p1/resources/gallery/p2Table2.png" alt="gallery image 1">
+                  <img id="gallery2" class="gallery_img short_rect" src="p1/resources/gallery/allureSubdue_img1.png" alt="gallery image 2">
+                  <img id="gallery3" class="gallery_img" src="p1/resources/gallery/p2Groups1.png" alt="gallery image 3">
+                  <img id="gallery4" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img2.png" alt="gallery image 4">
+                  <img id="gallery5" class="gallery_img" src="p1/resources/gallery/p2PlacardTeaserOperationsFinal.png" alt="gallery image 5">
+                  <img id="gallery6" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img3.png" alt="gallery image 6">
                 </div>
                 <div id="mid_gallery_column" class="gallery_column middle_col">
-                    <img id="topmidgallery" class="gallery_img long_rect" src="p1/resources/gallery/allureSubdue_img4.png" alt="gallery image 4">
-                    <img id="botmidgallery" class="gallery_img long_rect" src="p1/resources/gallery/allureSubdue_img5.png" alt="gallery image 5">
+                  <img id="gallery7" class="gallery_img" src="p1/resources/gallery/p2PlacardTeaserArtsFinal.png" alt="gallery image 7">
+                  <img id="gallery8" class="gallery_img long_rect" src="p1/resources/gallery/allureSubdue_img5.png" alt="gallery image 8">
+                  <img id="gallery9" class="gallery_img" src="p1/resources/gallery/p2Groups5.png" alt="gallery image 9">
+                  <img id="gallery10" class="gallery_img long_rect" src="p1/resources/gallery/allureSubdue_img5.png" alt="gallery image 10">
                 </div>
                 <div id="right_gallery_column" class="gallery_column">
-                    <img id="toprightgallery" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img6.png" alt="gallery image 6">
-                    <img id="midrightgallery" class="gallery_img short_rect" src="p1/resources/gallery/allureSubdue_img7.png" alt="gallery image 7">
-                    <img id="botrightgallery" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img8.png" alt="gallery image 8">
+                  <img id="gallery11" class="gallery_img" src="p1/resources/gallery/p2Table3.png" alt="gallery image 11">
+                  <img id="gallery12" class="gallery_img short_rect" src="p1/resources/gallery/allureSubdue_img7.png" alt="gallery image 12">
+                  <img id="gallery13" class="gallery_img" src="p1/resources/gallery/p2PlacardTeaserOperationsFinal.png" alt="gallery image 13">
+                  <img id="gallery14" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img6.png" alt="gallery image 14">
+                  <img id="gallery15" class="gallery_img" src="p1/resources/gallery/p2SolosTiff2.png" alt="gallery image 15">
+                  <img id="gallery16" class="gallery_img square" src="p1/resources/gallery/allureSubdue_img8.png" alt="gallery image 16">
                 </div>
             </div>
             <div id="gallery_spotlight">
@@ -142,19 +147,6 @@
             </div>
             <div id="gallery_mask" style="opacity: 0;"></div>
         </div>
-<!--        <footer id="footer">-->
-<!--&lt;!&ndash;            site actively in development. check back later for new features.&ndash;&gt;-->
-<!--            <a href="https://instagram.com/sam0th_" target="_blank">-->
-<!--                <img id="ig-logo-black" class="footer_imgs black black_footer ig-logo" src="./p1/resources/ig_logo.png" alt="Instagram logo">-->
-<!--                <img id="ig-logo-white" class="footer_imgs white white_footer ig-logo" src="./p1/resources/ig_logo_white.png" alt="Instagram logo white">-->
-<!--&lt;!&ndash;              <img id="ig-logo-p2red" class="footer_buttons ig-logo" src="index_resources/ig_logo_p2redv2.png" alt="Instagram logo red">&ndash;&gt;-->
-<!--            </a>-->
-<!--            <a href="https://github.com/ths22115/samoth" target="_blank">-->
-<!--                <img id="github-logo-black" class="footer_imgs black black_footer github-logo"  src="./p1/resources/github_logo.png" alt="Github logo">-->
-<!--                <img id="github-logo-white" class="footer_imgs white white_footer github-logo" src="./p1/resources/github_logo_white.png" alt="Github logo white">-->
-<!--&lt;!&ndash;              <img id="github-logo-p2red" class="footer_buttons github-logo" src="index_resources/github_logo_p2red.png" alt="Github logo red" >&ndash;&gt;-->
-<!--            </a>-->
-<!--        </footer>-->
         <footer id="mobile_footer">
             <button  id="mobile_home_button" class="mobile footer_buttons navbar_buttons home" value="home">home.</button>
             <button id="mobile_about_button" class="mobile footer_buttons navbar_buttons about" value="about">about.</button>

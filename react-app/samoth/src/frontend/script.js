@@ -29,7 +29,7 @@ window.onload = (event) => {
         });
     })
 
-    const starting_page = "home_page";
+    const starting_page = "about_page";
     for (let i = 0; i < pages.length; i++) {
         if (pages[i].id === starting_page) {
             pages[i].style.display = "flex";
