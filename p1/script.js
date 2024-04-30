@@ -34,7 +34,7 @@ window.onload = () => {
 
     windowResize();
     // console.log(isMobile);
-    // buildLandingDisplay();
+    buildLandingDisplay();
     // buildAboutMembers();
 
     allImgs = [gallery_imgs];
