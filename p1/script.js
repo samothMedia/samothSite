@@ -11,6 +11,9 @@ var spotlightLayer = document.querySelector("#gallery_spotlight");
 var spotlightImg = document.querySelector("#gallery_spotlight_img");
 var homeLandingSection = document.querySelector("#landing_section");
 var homeDisplaySection = document.querySelector("#display_section");
+var aboutAboutSection = document.querySelector("#about_section");
+var aboutAboutSectionText = document.querySelector("#about_text_container")
+var aboutMemberSection = document.querySelector("#member_section");
 var displayImgs = document.querySelectorAll(".p2_display_imgs");
 var displayGrid = document.querySelector("#display_img_container");
 var memberNameDiv = document.querySelector("#member_name_div");
@@ -20,7 +23,7 @@ var memberTitle = document.querySelector("#member_section_title");
 let memberNameArray = [];
 const nametoDataMap = new Map;
 
-var isMobile = window.visualViewport.width < 766;
+var isMobile = window.visualViewport.width < 769;
 var isSpotlight = false;
 
 window.onload = () => {
@@ -385,19 +388,31 @@ function windowResize() {
 
         console.log(window.visualViewport.width)
 
-        if (window.visualViewport.width < 766) {
+        if (window.visualViewport.width < 769) {
             isMobile = true;
         }
         var currentHeight = window.visualViewport.height;
         $(homeLandingSection).css("height",(currentHeight-55) + "px")
+        $(aboutAboutSection).css("height",(currentHeight-55) + "px")
+        $(aboutMemberSection).css("height",(currentHeight-55) + "px")
         // $(homeDisplaySection).css("height",(currentHeight-55) + "px")
 
         if (isMobile) {
             $(homeLandingSection).css("margin", "0");
             $(homeDisplaySection).css("margin", "0 0 55px 0");
+
+            $(aboutAboutSection).css("margin", "0");
+            $(aboutMemberSection).css("margin", "0 0 55px 0");
+
+            $(aboutAboutSectionText).css("margin", "55px 0 0 0");
         } else {
             $(homeLandingSection).css("margin", "55px 0 0 0");
             $(homeDisplaySection).css("margin", "0");
+
+            $(aboutAboutSection).css("margin", "55px 0 0 0");
+            $(aboutMemberSection).css("margin", "0");
+
+          $(aboutAboutSectionText).css("margin", "0");
         }
 
         console.log(isMobile)
@@ -436,36 +451,32 @@ function buildLandingDisplay() {
       [1456.51, 3293.48, 9606],
   ]
   var currentViewportWidth = window.visualViewport.width;
+  var singleColumnGrid = currentViewportWidth <= 576;
 
-  if (currentViewportWidth <= 576 ) {
+  if (singleColumnGrid) {
       var landingBackground = document.getElementById('p2HomePostReleaseBackground');
       $(landingBackground).attr("src","index_resources/landing/p2PostReleaseLandingMobile" + (Math.ceil(Math.random()*9)).toString() + ".png");
   }
 
-  if (isMobile) {
+  var scale = currentViewportWidth / 4950
 
+  var gridWidth = 4550 * scale;
+  var gridHeight = 11666.3 * scale;
+  $(displayGrid).css('width', gridWidth);
+  if (singleColumnGrid) {
+      $(displayGrid).css('height', 'auto');
+      $(homeDisplaySection).css('height', 'auto')
+  } else {
+      $(displayGrid).css('height', gridHeight);
+      $(homeDisplaySection).css('height', gridHeight+150)
   }
-        // if (!isMobile) {
-
-    var scale = currentViewportWidth / 4950
-
-    var gridWidth = 4550 * scale;
-    var gridHeight = 11666.3 * scale;
-    $(displayGrid).css('width', gridWidth);
-    if (isMobile) {
-        $(displayGrid).css('height', 'auto');
-        $(homeDisplaySection).css('height', 'auto')
-    } else {
-        $(displayGrid).css('height', gridHeight);
-        $(homeDisplaySection).css('height', gridHeight+150)
-    }
     // }
 
   // var counter = 0;
   var rowCounter = 1;
   for (var i = 1; i < 16; i++) {
     var oldI = -1;
-    if (isMobile) {
+    if (singleColumnGrid) {
         if (i === 1) {
             oldI = i;
             i = 5;
@@ -482,7 +493,7 @@ function buildLandingDisplay() {
     var imgColumn;
     var imgRow;
 
-    if (isMobile) {
+    if (singleColumnGrid) {
         newWidth = gridWidth;
         imgColumn = 0;
         imgRow = 0;
