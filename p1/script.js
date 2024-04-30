@@ -14,6 +14,7 @@ var homeDisplaySection = document.querySelector("#display_section");
 var aboutAboutSection = document.querySelector("#about_section");
 var aboutAboutSectionText = document.querySelector("#about_text_container")
 var aboutMemberSection = document.querySelector("#member_section");
+var aboutMemberBlocker = document.querySelector('#members_dev_blocker')
 var displayImgs = document.querySelectorAll(".p2_display_imgs");
 var displayGrid = document.querySelector("#display_img_container");
 var memberNameDiv = document.querySelector("#member_name_div");
@@ -33,8 +34,8 @@ window.onload = () => {
 
     windowResize();
     // console.log(isMobile);
-    buildLandingDisplay();
-    buildAboutMembers();
+    // buildLandingDisplay();
+    // buildAboutMembers();
 
     allImgs = [gallery_imgs];
     // allImgs = [gallery_imgs, displayImgs];
@@ -395,24 +396,25 @@ function windowResize() {
         $(homeLandingSection).css("height",(currentHeight-55) + "px")
         $(aboutAboutSection).css("height",(currentHeight-55) + "px")
         $(aboutMemberSection).css("height",(currentHeight-55) + "px")
-        // $(homeDisplaySection).css("height",(currentHeight-55) + "px")
+        $(aboutMemberBlocker).css("height",(currentHeight-55) + "px")
+        $(aboutAboutSection).css("margin", "55px 0 0 0");
 
         if (isMobile) {
             $(homeLandingSection).css("margin", "0");
             $(homeDisplaySection).css("margin", "0 0 55px 0");
 
-            $(aboutAboutSection).css("margin", "0");
+            // $(aboutAboutSection).css("margin", "0");
             $(aboutMemberSection).css("margin", "0 0 55px 0");
 
-            $(aboutAboutSectionText).css("margin", "55px 0 0 0");
+            // $(aboutAboutSectionText).css("margin", "55px 0 0 0");
         } else {
             $(homeLandingSection).css("margin", "55px 0 0 0");
             $(homeDisplaySection).css("margin", "0");
 
-            $(aboutAboutSection).css("margin", "55px 0 0 0");
+            // $(aboutAboutSection).css("margin", "55px 0 0 0");
             $(aboutMemberSection).css("margin", "0");
 
-          $(aboutAboutSectionText).css("margin", "0");
+          // $(aboutAboutSectionText).css("margin", "0");
         }
 
         // console.log(isMobile)

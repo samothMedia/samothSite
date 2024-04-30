@@ -771,10 +771,10 @@ footer > a {
 }
 @media (max-width: 375px) {
     .about_title {
-        font-size: 35px;
+        font-size: 44px;
     }
     .about-text {
-        font-size: 15px;
+        font-size: 2.1vh;
     }
 
     #mobile_header_samoth {
