@@ -535,7 +535,7 @@ function buildLandingDisplay() {
       'models: <a href="https://instagram.com/kapingatshi" class="displayCreditLinks" target="_blank">kapinga tshibangu</a> | ' +
       '<a href="https://instagram.com/idiowreque" class="displayCreditLinks" target="_blank">mags martin</a> | ' +
       '<a href="https://instagram.com/tiffsoup" class="displayCreditLinks" target="_blank">tiff suporn</a> | ' +
-      '<a href="https://instagram.com/kaylavillecas" class="displayCreditLinks" target="_blank">kayla villescas</a> | ' +
+      '<a href="https://instagram.com/kaylavillescas" class="displayCreditLinks" target="_blank">kayla villescas</a> | ' +
       '<a href="https://instagram.com/raven.l.levitt" class="displayCreditLinks" target="_blank">raven levitt</a> | ' +
       '<a href="https://instagram.com/_fionnalam" class="displayCreditLinks" target="_blank">fionna lam</a> | ' +
       '<a href="https://instagram.com/miles.th0mas" class="displayCreditLinks" target="_blank">miles thomas</a>';
